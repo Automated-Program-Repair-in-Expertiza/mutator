@@ -1,0 +1,3670 @@
+Mutant configuration:
+Matcher:         #<Mutant::Matcher::Config match_expressions: [SignUpSheetController]>
+Integration:     Mutant::Integration::Null
+Jobs:            1
+Includes:        []
+Requires:        ["./config/environment"]
+(00/182) 100% - killtime: 0.00s runtime: 0.00s overhead: 0.00s
+(01/182)  25% - killtime: 0.00s runtime: 1.02s overhead: 1.02s
+(01/182)  10% - killtime: 0.00s runtime: 2.02s overhead: 2.02s
+(01/182)   7% - killtime: 0.00s runtime: 3.02s overhead: 3.02s
+(01/182)   5% - killtime: 0.00s runtime: 4.02s overhead: 4.02s
+(01/182)   4% - killtime: 0.00s runtime: 5.02s overhead: 5.02s
+(01/182)   3% - killtime: 0.00s runtime: 6.03s overhead: 6.03s
+(01/182)   3% - killtime: 0.00s runtime: 7.03s overhead: 7.03s
+(01/182)   2% - killtime: 0.00s runtime: 8.03s overhead: 8.03s
+(01/182)   2% - killtime: 0.00s runtime: 9.03s overhead: 9.03s
+(01/182)   2% - killtime: 0.00s runtime: 10.04s overhead: 10.04s
+(01/182)   2% - killtime: 0.00s runtime: 11.04s overhead: 11.04s
+(01/182)   2% - killtime: 0.00s runtime: 12.04s overhead: 12.04s
+(01/182)   1% - killtime: 0.00s runtime: 13.04s overhead: 13.04s
+(01/182)   1% - killtime: 0.00s runtime: 14.07s overhead: 14.07s
+(01/182)   1% - killtime: 0.00s runtime: 15.08s overhead: 15.08s
+(01/182)   1% - killtime: 0.00s runtime: 16.08s overhead: 16.08s
+(01/182)   1% - killtime: 0.00s runtime: 17.08s overhead: 17.08s
+(01/182)   1% - killtime: 0.00s runtime: 18.08s overhead: 18.08s
+(01/182)   1% - killtime: 0.00s runtime: 19.08s overhead: 19.08s
+(01/182)   1% - killtime: 0.00s runtime: 20.08s overhead: 20.08s
+(01/182)   0% - killtime: 0.00s runtime: 21.08s overhead: 21.08s
+(01/182)   0% - killtime: 0.00s runtime: 22.08s overhead: 22.08s
+(01/182)   0% - killtime: 0.00s runtime: 23.08s overhead: 23.08s
+(01/182)   0% - killtime: 0.00s runtime: 24.09s overhead: 24.09s
+(01/182)   0% - killtime: 0.00s runtime: 25.09s overhead: 25.09s
+(01/182)   0% - killtime: 0.00s runtime: 26.09s overhead: 26.09s
+(01/182)   0% - killtime: 0.00s runtime: 27.09s overhead: 27.09s
+(01/182)   0% - killtime: 0.00s runtime: 28.10s overhead: 28.10s
+(01/182)   0% - killtime: 0.00s runtime: 29.11s overhead: 29.11s
+(01/182)   0% - killtime: 0.00s runtime: 30.11s overhead: 30.11s
+(01/182)   0% - killtime: 0.00s runtime: 31.11s overhead: 31.11s
+(01/182)   0% - killtime: 0.00s runtime: 32.11s overhead: 32.11s
+(01/182)   0% - killtime: 0.00s runtime: 33.12s overhead: 33.12s
+(01/182)   0% - killtime: 0.00s runtime: 34.12s overhead: 34.12s
+SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:4636a
+@@ -1,17 +1,4 @@
+ def destroy
+-  @topic = SignUpTopic.find(params[:id])
+-  if @topic
+-    @topic.destroy
+-    undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+-  else
+-    flash[:error] = "The topic could not be deleted."
+-  end
+-  if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+-    dependencies = TopicDependency.where(topic_id: params[:id])
+-    unless dependencies.nil?
+-      dependencies.each(&:destroy)
+-    end
+-  end
+-  redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
++  raise
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:0f2ba
+@@ -1,17 +1,3 @@
+ def destroy
+-  @topic = SignUpTopic.find(params[:id])
+-  if @topic
+-    @topic.destroy
+-    undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+-  else
+-    flash[:error] = "The topic could not be deleted."
+-  end
+-  if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+-    dependencies = TopicDependency.where(topic_id: params[:id])
+-    unless dependencies.nil?
+-      dependencies.each(&:destroy)
+-    end
+-  end
+-  redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:d6daf
+@@ -1,17 +1,17 @@
+ def destroy
+-  @topic = SignUpTopic.find(params[:id])
++  nil
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:a0ce9
+@@ -1,17 +1,17 @@
+ def destroy
+-  @topic = SignUpTopic.find(params[:id])
++  self
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:785b0
+@@ -1,17 +1,17 @@
+ def destroy
+-  @topic = SignUpTopic.find(params[:id])
++  @topic__mutant__ = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:ff1a2
+@@ -1,17 +1,17 @@
+ def destroy
+-  @topic = SignUpTopic.find(params[:id])
++  @topic = nil
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:5123b
+@@ -1,17 +1,17 @@
+ def destroy
+-  @topic = SignUpTopic.find(params[:id])
++  @topic = self
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:6b125
+@@ -1,17 +1,17 @@
+ def destroy
+-  @topic = SignUpTopic.find(params[:id])
++  @topic = SignUpTopic
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:64a46
+@@ -1,17 +1,17 @@
+ def destroy
+-  @topic = SignUpTopic.find(params[:id])
++  @topic = params[:id]
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:1db9e
+@@ -1,17 +1,17 @@
+ def destroy
+-  @topic = SignUpTopic.find(params[:id])
++  @topic = self.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:c80a6
+@@ -1,17 +1,17 @@
+ def destroy
+-  @topic = SignUpTopic.find(params[:id])
++  @topic = SignUpTopic.find
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:febc7
+@@ -1,17 +1,17 @@
+ def destroy
+-  @topic = SignUpTopic.find(params[:id])
++  @topic = SignUpTopic.find(nil)
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:f7cb0
+@@ -1,17 +1,17 @@
+ def destroy
+-  @topic = SignUpTopic.find(params[:id])
++  @topic = SignUpTopic.find(self)
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:54c0b
+@@ -1,17 +1,17 @@
+ def destroy
+-  @topic = SignUpTopic.find(params[:id])
++  @topic = SignUpTopic.find(params)
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:50eb3
+@@ -1,17 +1,17 @@
+ def destroy
+-  @topic = SignUpTopic.find(params[:id])
++  @topic = SignUpTopic.find(params.at(:id))
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:c0da0
+@@ -1,17 +1,17 @@
+ def destroy
+-  @topic = SignUpTopic.find(params[:id])
++  @topic = SignUpTopic.find(params.fetch(:id))
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:2435d
+@@ -1,17 +1,17 @@
+ def destroy
+-  @topic = SignUpTopic.find(params[:id])
++  @topic = SignUpTopic.find(params.key?(:id))
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:c8b38
+@@ -1,17 +1,17 @@
+ def destroy
+-  @topic = SignUpTopic.find(params[:id])
++  @topic = SignUpTopic.find(:id)
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:f768e
+@@ -1,17 +1,17 @@
+ def destroy
+-  @topic = SignUpTopic.find(params[:id])
++  @topic = SignUpTopic.find(self[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:58815
+@@ -1,17 +1,17 @@
+ def destroy
+-  @topic = SignUpTopic.find(params[:id])
++  @topic = SignUpTopic.find(params[])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:50bff
+@@ -1,17 +1,17 @@
+ def destroy
+-  @topic = SignUpTopic.find(params[:id])
++  @topic = SignUpTopic.find(params[nil])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:60826
+@@ -1,17 +1,17 @@
+ def destroy
+-  @topic = SignUpTopic.find(params[:id])
++  @topic = SignUpTopic.find(params[self])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:0af24
+@@ -1,17 +1,17 @@
+ def destroy
+-  @topic = SignUpTopic.find(params[:id])
++  @topic = SignUpTopic.find(params[:id__mutant__])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:68be4
+@@ -1,17 +1,4 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+-  if @topic
+-    @topic.destroy
+-    undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+-  else
+-    flash[:error] = "The topic could not be deleted."
+-  end
+-  if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+-    dependencies = TopicDependency.where(topic_id: params[:id])
+-    unless dependencies.nil?
+-      dependencies.each(&:destroy)
+-    end
+-  end
+-  redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:cf5e4
+@@ -1,17 +1,12 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+-  if @topic
+-    @topic.destroy
+-    undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+-  else
+-    flash[:error] = "The topic could not be deleted."
+-  end
++  nil
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:3b979
+@@ -1,17 +1,12 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+-  if @topic
+-    @topic.destroy
+-    undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+-  else
+-    flash[:error] = "The topic could not be deleted."
+-  end
++  self
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:b8856
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+-  if @topic
++  if topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:2571f
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+-  if @topic
++  if nil
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:2f73d
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+-  if @topic
++  if (!@topic)
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:ffa75
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+-  if @topic
++  if true
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:7c53e
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+-  if @topic
++  if false
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:a3ac4
+@@ -1,17 +1,14 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+-    @topic.destroy
+-    undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+-  else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:cf397
+@@ -1,17 +1,13 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+-  if @topic
+-    @topic.destroy
+-    undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+-  else
+-    flash[:error] = "The topic could not be deleted."
+-  end
++  @topic.destroy
++  undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:afca9
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+-    @topic.destroy
++    nil
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:d7e9c
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+-    @topic.destroy
++    self
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:92282
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+-    @topic.destroy
++    @topic
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:82bd0
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+-    @topic.destroy
++    topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:a4912
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+-    @topic.destroy
++    self.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:4ac9d
+@@ -1,17 +1,16 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+-    undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:efc28
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+-    undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
++    nil
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:8fea2
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+-    undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
++    self
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:3ec7b
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+-    undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
++    "#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}"
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:d5ef0
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+-    undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
++    undo_link
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:a8a1b
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+-    undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
++    undo_link("#{nil}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:c2998
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+-    undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
++    undo_link("#{self}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:195e3
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+-    undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
++    undo_link("#{"The topic: \""}#{nil}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:e96b9
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+-    undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
++    undo_link("#{"The topic: \""}#{self}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:2f99d
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+-    undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
++    undo_link("#{"The topic: \""}#{@topic}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:c528d
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+-    undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
++    undo_link("#{"The topic: \""}#{topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:d1903
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+-    undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
++    undo_link("#{"The topic: \""}#{self.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:b7d9c
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+-    undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
++    undo_link("#{"The topic: \""}#{@topic.topic_name}#{nil}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:8ef39
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+-    undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
++    undo_link("#{"The topic: \""}#{@topic.topic_name}#{self}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:2f1ff
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+-    undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
++    undo_link(nil)
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:8fff4
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+-    undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
++    undo_link(self)
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:8e04b
+@@ -1,17 +1,16 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+-    @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:dbb5a
+@@ -1,17 +1,15 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+-  else
+-    flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:16864
+@@ -1,17 +1,12 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+-  if @topic
+-    @topic.destroy
+-    undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+-  else
+-    flash[:error] = "The topic could not be deleted."
+-  end
++  flash[:error] = "The topic could not be deleted."
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:3f33b
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+-    flash[:error] = "The topic could not be deleted."
++    nil
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:f8b3c
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+-    flash[:error] = "The topic could not be deleted."
++    self
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:93e83
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+-    flash[:error] = "The topic could not be deleted."
++    flash
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:31f25
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+-    flash[:error] = "The topic could not be deleted."
++    flash[:error] = nil
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:337c8
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+-    flash[:error] = "The topic could not be deleted."
++    flash[:error] = self
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:70e43
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+-    flash[:error] = "The topic could not be deleted."
++    flash[:error]
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:40979
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+-    flash[:error] = "The topic could not be deleted."
++    "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:5df30
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+-    flash[:error] = "The topic could not be deleted."
++    flash[] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:89e3b
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+-    flash[:error] = "The topic could not be deleted."
++    flash[nil] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:c432d
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+-    flash[:error] = "The topic could not be deleted."
++    flash[self] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:1d9ee
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+-    flash[:error] = "The topic could not be deleted."
++    flash[:error__mutant__] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:75958
+@@ -1,17 +1,14 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+-  if @topic
+-    @topic.destroy
+-    undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+-  else
++  unless @topic
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:6fc10
+@@ -1,17 +1,10 @@
+ def destroy
+-  @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+-  if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+-    dependencies = TopicDependency.where(topic_id: params[:id])
+-    unless dependencies.nil?
+-      dependencies.each(&:destroy)
+-    end
+-  end
+-  redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:96c2f
+@@ -1,17 +1,12 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+-  if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+-    dependencies = TopicDependency.where(topic_id: params[:id])
+-    unless dependencies.nil?
+-      dependencies.each(&:destroy)
+-    end
+-  end
++  nil
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:24f27
+@@ -1,17 +1,12 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+-  if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+-    dependencies = TopicDependency.where(topic_id: params[:id])
+-    unless dependencies.nil?
+-      dependencies.each(&:destroy)
+-    end
+-  end
++  self
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:51826
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+-  if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
++  if nil
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:c8750
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+-  if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
++  if Assignment.find(params[:assignment_id])["staggered_deadline"]
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:993e3
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+-  if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
++  if (nil == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:f8536
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+-  if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
++  if (self == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:f0f56
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+-  if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
++  if (Assignment.find(params[:assignment_id]) == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:9168e
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+-  if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
++  if (Assignment.find(params[:assignment_id]).at("staggered_deadline") == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:a8c07
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+-  if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
++  if (Assignment.find(params[:assignment_id]).fetch("staggered_deadline") == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:3bbca
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+-  if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
++  if (Assignment.find(params[:assignment_id]).key?("staggered_deadline") == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:585c3
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+-  if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
++  if ("staggered_deadline" == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:cd1a3
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+-  if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
++  if (self["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:833d1
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+-  if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
++  if (Assignment["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:217ee
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+-  if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
++  if (params[:assignment_id]["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:d0c03
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+-  if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
++  if (self.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:c7ae4
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+-  if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
++  if (Assignment.find["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:136c5
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+-  if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
++  if (Assignment.find(nil)["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:fbe87
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+-  if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
++  if (Assignment.find(self)["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:3a561
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+-  if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
++  if (Assignment.find(params)["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:6e78d
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+-  if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
++  if (Assignment.find(params.at(:assignment_id))["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:15909
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+-  if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
++  if (Assignment.find(params.fetch(:assignment_id))["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:9df25
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+-  if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
++  if (Assignment.find(params.key?(:assignment_id))["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:e770a
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+-  if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
++  if (Assignment.find(:assignment_id)["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:4f038
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+-  if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
++  if (Assignment.find(self[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:23dd0
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+-  if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
++  if (Assignment.find(params[])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:f898c
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+-  if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
++  if (Assignment.find(params[nil])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:be546
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+-  if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
++  if (Assignment.find(params[self])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:d3549
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+-  if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
++  if (Assignment.find(params[:assignment_id__mutant__])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:3c303
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+-  if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
++  if (Assignment.find(params[:assignment_id])[] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:17502
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+-  if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
++  if (Assignment.find(params[:assignment_id])[nil] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:522a9
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+-  if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
++  if (Assignment.find(params[:assignment_id])[self] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:53de0
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+-  if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
++  if Assignment.find(params[:assignment_id])["staggered_deadline"].eql?(true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:d4d86
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+-  if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
++  if Assignment.find(params[:assignment_id])["staggered_deadline"].equal?(true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:0c146
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+-  if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
++  if true
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:63954
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+-  if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
++  if (Assignment.find(params[:assignment_id])["staggered_deadline"] == nil)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:7bcab
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+-  if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
++  if (Assignment.find(params[:assignment_id])["staggered_deadline"] == false)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:f11ba
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+-  if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
++  if (!(Assignment.find(params[:assignment_id])["staggered_deadline"] == true))
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:55e91
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+-  if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
++  if false
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:da7c8
+@@ -1,17 +1,15 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+-  if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+-    dependencies = TopicDependency.where(topic_id: params[:id])
+-    unless dependencies.nil?
+-      dependencies.each(&:destroy)
+-    end
++  dependencies = TopicDependency.where(topic_id: params[:id])
++  unless dependencies.nil?
++    dependencies.each(&:destroy)
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:c4494
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+-    dependencies = TopicDependency.where(topic_id: params[:id])
++    nil
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:3893a
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+-    dependencies = TopicDependency.where(topic_id: params[:id])
++    self
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:25ce1
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+-    dependencies = TopicDependency.where(topic_id: params[:id])
++    dependencies__mutant__ = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:59016
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+-    dependencies = TopicDependency.where(topic_id: params[:id])
++    dependencies = nil
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:6be16
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+-    dependencies = TopicDependency.where(topic_id: params[:id])
++    dependencies = self
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:81ea1
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+-    dependencies = TopicDependency.where(topic_id: params[:id])
++    dependencies = TopicDependency
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:6693f
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+-    dependencies = TopicDependency.where(topic_id: params[:id])
++    dependencies = { topic_id: params[:id] }
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:627a0
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+-    dependencies = TopicDependency.where(topic_id: params[:id])
++    dependencies = self.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:85b29
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+-    dependencies = TopicDependency.where(topic_id: params[:id])
++    dependencies = TopicDependency.where
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:524b5
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+-    dependencies = TopicDependency.where(topic_id: params[:id])
++    dependencies = TopicDependency.where(nil)
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:97755
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+-    dependencies = TopicDependency.where(topic_id: params[:id])
++    dependencies = TopicDependency.where(self)
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:6e2d3
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+-    dependencies = TopicDependency.where(topic_id: params[:id])
++    dependencies = TopicDependency.where({})
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:a00b4
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+-    dependencies = TopicDependency.where(topic_id: params[:id])
++    dependencies = TopicDependency.where(nil => params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:38c76
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+-    dependencies = TopicDependency.where(topic_id: params[:id])
++    dependencies = TopicDependency.where(self => params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:32b85
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+-    dependencies = TopicDependency.where(topic_id: params[:id])
++    dependencies = TopicDependency.where(topic_id__mutant__: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:2a3c8
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+-    dependencies = TopicDependency.where(topic_id: params[:id])
++    dependencies = TopicDependency.where(topic_id: nil)
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:867f3
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+-    dependencies = TopicDependency.where(topic_id: params[:id])
++    dependencies = TopicDependency.where(topic_id: self)
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:52269
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+-    dependencies = TopicDependency.where(topic_id: params[:id])
++    dependencies = TopicDependency.where(topic_id: params)
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:9b2c3
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+-    dependencies = TopicDependency.where(topic_id: params[:id])
++    dependencies = TopicDependency.where(topic_id: params.at(:id))
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:d7813
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+-    dependencies = TopicDependency.where(topic_id: params[:id])
++    dependencies = TopicDependency.where(topic_id: params.fetch(:id))
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:2d4c2
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+-    dependencies = TopicDependency.where(topic_id: params[:id])
++    dependencies = TopicDependency.where(topic_id: params.key?(:id))
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:c4a78
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+-    dependencies = TopicDependency.where(topic_id: params[:id])
++    dependencies = TopicDependency.where(topic_id: :id)
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:f4c30
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+-    dependencies = TopicDependency.where(topic_id: params[:id])
++    dependencies = TopicDependency.where(topic_id: self[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:b1eff
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+-    dependencies = TopicDependency.where(topic_id: params[:id])
++    dependencies = TopicDependency.where(topic_id: params[])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:2035a
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+-    dependencies = TopicDependency.where(topic_id: params[:id])
++    dependencies = TopicDependency.where(topic_id: params[nil])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:75ebe
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+-    dependencies = TopicDependency.where(topic_id: params[:id])
++    dependencies = TopicDependency.where(topic_id: params[self])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:a8499
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+-    dependencies = TopicDependency.where(topic_id: params[:id])
++    dependencies = TopicDependency.where(topic_id: params[:id__mutant__])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:c0be5
+@@ -1,17 +1,14 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+-    unless dependencies.nil?
+-      dependencies.each(&:destroy)
+-    end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:75e75
+@@ -1,17 +1,15 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+-    unless dependencies.nil?
+-      dependencies.each(&:destroy)
+-    end
++    nil
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:0fc80
+@@ -1,17 +1,15 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+-    unless dependencies.nil?
+-      dependencies.each(&:destroy)
+-    end
++    self
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:a2c7e
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+-    unless dependencies.nil?
++    unless nil
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:dfc04
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+-    unless dependencies.nil?
++    unless dependencies
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:fa00d
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+-    unless dependencies.nil?
++    unless self.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:ba01d
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+-    unless dependencies.nil?
++    unless (!dependencies.nil?)
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:b897f
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+-    unless dependencies.nil?
++    unless true
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:ff6fc
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+-    unless dependencies.nil?
++    unless false
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:a8d16
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+-    unless dependencies.nil?
++    if dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:a424e
+@@ -1,17 +1,15 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+-    unless dependencies.nil?
+-      dependencies.each(&:destroy)
+-    end
++    dependencies.each(&:destroy)
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:eb4d4
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+-      dependencies.each(&:destroy)
++      nil
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:bf3d1
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+-      dependencies.each(&:destroy)
++      self
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:a4c5c
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+-      dependencies.each(&:destroy)
++      dependencies
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:3a241
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+-      dependencies.each(&:destroy)
++      self.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:e7d75
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+-      dependencies.each(&:destroy)
++      dependencies.each
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:8dc4e
+@@ -1,17 +1,16 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+-    dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:49884
+@@ -1,17 +1,16 @@
+ def destroy
+-  @topic = SignUpTopic.find(params[:id])
+-  if @topic
+-    @topic.destroy
+-    undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+-  else
+-    flash[:error] = "The topic could not be deleted."
+-  end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+-  redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:19af5
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+-  redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
++  nil
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:477e6
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+-  redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
++  self
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:d430c
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+-  redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
++  edit_assignment_path(params[:assignment_id]) + "#tabs-5"
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:23793
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+-  redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
++  redirect_to
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:0d4d3
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+-  redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
++  redirect_to(nil)
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:9a426
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+-  redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
++  redirect_to(self)
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:6bcc7
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+-  redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
++  redirect_to(edit_assignment_path(params[:assignment_id]))
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:e6aef
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+-  redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
++  redirect_to(nil + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:1ca29
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+-  redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
++  redirect_to(self + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:80412
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+-  redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
++  redirect_to(params[:assignment_id] + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:f79cc
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+-  redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
++  redirect_to(edit_assignment_path + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:4729a
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+-  redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
++  redirect_to(edit_assignment_path(nil) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:fcea9
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+-  redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
++  redirect_to(edit_assignment_path(self) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:cca2d
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+-  redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
++  redirect_to(edit_assignment_path(params) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:a2a3c
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+-  redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
++  redirect_to(edit_assignment_path(params.at(:assignment_id)) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:a82d7
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+-  redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
++  redirect_to(edit_assignment_path(params.fetch(:assignment_id)) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:c4154
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+-  redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
++  redirect_to(edit_assignment_path(params.key?(:assignment_id)) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:eabaa
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+-  redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
++  redirect_to(edit_assignment_path(:assignment_id) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:83040
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+-  redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
++  redirect_to(edit_assignment_path(self[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:b0a0b
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+-  redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
++  redirect_to(edit_assignment_path(params[]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:488ee
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+-  redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
++  redirect_to(edit_assignment_path(params[nil]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:38350
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+-  redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
++  redirect_to(edit_assignment_path(params[self]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:139e1
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+-  redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
++  redirect_to(edit_assignment_path(params[:assignment_id__mutant__]) + "#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:cc9b2
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+-  redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
++  redirect_to("#tabs-5")
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:cec72
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+-  redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
++  redirect_to(edit_assignment_path(params[:assignment_id]) + nil)
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:da6f9
+@@ -1,17 +1,17 @@
+ def destroy
+   @topic = SignUpTopic.find(params[:id])
+   if @topic
+     @topic.destroy
+     undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+   else
+     flash[:error] = "The topic could not be deleted."
+   end
+   if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+     dependencies = TopicDependency.where(topic_id: params[:id])
+     unless dependencies.nil?
+       dependencies.each(&:destroy)
+     end
+   end
+-  redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
++  redirect_to(edit_assignment_path(params[:assignment_id]) + self)
+ end
+-----------------------
+evil:SignUpSheetController#destroy:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:40352
+@@ -1,17 +1,4 @@
+ def destroy
+-  @topic = SignUpTopic.find(params[:id])
+-  if @topic
+-    @topic.destroy
+-    undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+-  else
+-    flash[:error] = "The topic could not be deleted."
+-  end
+-  if (Assignment.find(params[:assignment_id])["staggered_deadline"] == true)
+-    dependencies = TopicDependency.where(topic_id: params[:id])
+-    unless dependencies.nil?
+-      dependencies.each(&:destroy)
+-    end
+-  end
+   redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+ end
+-----------------------
+Mutant configuration:
+Matcher:         #<Mutant::Matcher::Config match_expressions: [SignUpSheetController]>
+Integration:     Mutant::Integration::Null
+Jobs:            1
+Includes:        []
+Requires:        ["./config/environment"]
+Subjects:        1
+Mutations:       182
+Results:         182
+Kills:           1
+Alive:           181
+Runtime:         34.12s
+Killtime:        0.00s
+Overhead:        Inf%
+Mutations/s:     5.33
+Coverage:        0.55%

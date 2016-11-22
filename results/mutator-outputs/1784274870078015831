@@ -1,0 +1,3343 @@
+Mutant configuration:
+Matcher:         #<Mutant::Matcher::Config match_expressions: [GradesController]>
+Integration:     Mutant::Integration::Null
+Jobs:            1
+Includes:        []
+Requires:        ["./config/environment"]
+(00/158) 100% - killtime: 0.00s runtime: 0.00s overhead: 0.00s
+(01/158)  16% - killtime: 0.00s runtime: 1.01s overhead: 1.01s
+(01/158)   8% - killtime: 0.00s runtime: 2.01s overhead: 2.01s
+(01/158)   5% - killtime: 0.00s runtime: 3.02s overhead: 3.02s
+(01/158)   4% - killtime: 0.00s runtime: 4.02s overhead: 4.02s
+(01/158)   3% - killtime: 0.00s runtime: 5.02s overhead: 5.02s
+(01/158)   2% - killtime: 0.00s runtime: 6.02s overhead: 6.02s
+(01/158)   2% - killtime: 0.00s runtime: 7.02s overhead: 7.02s
+(01/158)   2% - killtime: 0.00s runtime: 8.02s overhead: 8.02s
+(01/158)   1% - killtime: 0.00s runtime: 9.02s overhead: 9.02s
+(01/158)   1% - killtime: 0.00s runtime: 10.02s overhead: 10.02s
+(01/158)   1% - killtime: 0.00s runtime: 11.03s overhead: 11.03s
+(01/158)   1% - killtime: 0.00s runtime: 12.03s overhead: 12.03s
+(01/158)   1% - killtime: 0.00s runtime: 13.03s overhead: 13.03s
+(01/158)   1% - killtime: 0.00s runtime: 14.03s overhead: 14.03s
+(01/158)   1% - killtime: 0.00s runtime: 15.03s overhead: 15.03s
+(01/158)   0% - killtime: 0.00s runtime: 16.03s overhead: 16.03s
+(01/158)   0% - killtime: 0.00s runtime: 17.03s overhead: 17.03s
+(01/158)   0% - killtime: 0.00s runtime: 18.03s overhead: 18.03s
+(01/158)   0% - killtime: 0.00s runtime: 19.05s overhead: 19.05s
+(01/158)   0% - killtime: 0.00s runtime: 20.05s overhead: 20.05s
+(01/158)   0% - killtime: 0.00s runtime: 21.05s overhead: 21.05s
+(01/158)   0% - killtime: 0.00s runtime: 22.06s overhead: 22.06s
+(01/158)   0% - killtime: 0.00s runtime: 23.09s overhead: 23.09s
+(01/158)   0% - killtime: 0.00s runtime: 24.09s overhead: 24.09s
+(01/158)   0% - killtime: 0.00s runtime: 25.09s overhead: 25.09s
+GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:002d1
+@@ -1,18 +1,4 @@
+ def redirect_when_disallowed
+-  if (@participant.assignment.max_team_size > 1)
+-    team = @participant.team
+-    unless team.nil?
+-      unless team.has_user(session[:user])
+-        redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+-        return true
+-      end
+-    end
+-  else
+-    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+-    unless current_user_id?(reviewer.user_id)
+-      return true
+-    end
+-  end
+-  false
++  raise
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:2acb9
+@@ -1,18 +1,3 @@
+ def redirect_when_disallowed
+-  if (@participant.assignment.max_team_size > 1)
+-    team = @participant.team
+-    unless team.nil?
+-      unless team.has_user(session[:user])
+-        redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+-        return true
+-      end
+-    end
+-  else
+-    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+-    unless current_user_id?(reviewer.user_id)
+-      return true
+-    end
+-  end
+-  false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:2272b
+@@ -1,18 +1,5 @@
+ def redirect_when_disallowed
+-  if (@participant.assignment.max_team_size > 1)
+-    team = @participant.team
+-    unless team.nil?
+-      unless team.has_user(session[:user])
+-        redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+-        return true
+-      end
+-    end
+-  else
+-    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+-    unless current_user_id?(reviewer.user_id)
+-      return true
+-    end
+-  end
++  nil
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:e9038
+@@ -1,18 +1,5 @@
+ def redirect_when_disallowed
+-  if (@participant.assignment.max_team_size > 1)
+-    team = @participant.team
+-    unless team.nil?
+-      unless team.has_user(session[:user])
+-        redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+-        return true
+-      end
+-    end
+-  else
+-    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+-    unless current_user_id?(reviewer.user_id)
+-      return true
+-    end
+-  end
++  self
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:f4222
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+-  if (@participant.assignment.max_team_size > 1)
++  if nil
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:6488b
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+-  if (@participant.assignment.max_team_size > 1)
++  if @participant.assignment.max_team_size
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:f9932
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+-  if (@participant.assignment.max_team_size > 1)
++  if (nil > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:da772
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+-  if (@participant.assignment.max_team_size > 1)
++  if (self > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:59291
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+-  if (@participant.assignment.max_team_size > 1)
++  if (@participant.assignment > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:631fa
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+-  if (@participant.assignment.max_team_size > 1)
++  if (self.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:3fa37
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+-  if (@participant.assignment.max_team_size > 1)
++  if (@participant.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:50105
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+-  if (@participant.assignment.max_team_size > 1)
++  if (participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:bae5d
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+-  if (@participant.assignment.max_team_size > 1)
++  if (self.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:329d4
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+-  if (@participant.assignment.max_team_size > 1)
++  if (@participant.assignment.max_team_size == 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:d544a
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+-  if (@participant.assignment.max_team_size > 1)
++  if (@participant.assignment.max_team_size >= 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:74ff0
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+-  if (@participant.assignment.max_team_size > 1)
++  if @participant.assignment.max_team_size.eql?(1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:60e78
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+-  if (@participant.assignment.max_team_size > 1)
++  if @participant.assignment.max_team_size.equal?(1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:a8cc3
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+-  if (@participant.assignment.max_team_size > 1)
++  if 1
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:06326
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+-  if (@participant.assignment.max_team_size > 1)
++  if (@participant.assignment.max_team_size > nil)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:2dbbf
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+-  if (@participant.assignment.max_team_size > 1)
++  if (@participant.assignment.max_team_size > self)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:2a31e
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+-  if (@participant.assignment.max_team_size > 1)
++  if (@participant.assignment.max_team_size > 0)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:bbc54
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+-  if (@participant.assignment.max_team_size > 1)
++  if (@participant.assignment.max_team_size > (-1))
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:902bb
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+-  if (@participant.assignment.max_team_size > 1)
++  if (@participant.assignment.max_team_size > 2)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:21c29
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+-  if (@participant.assignment.max_team_size > 1)
++  if (!(@participant.assignment.max_team_size > 1))
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:49d3f
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+-  if (@participant.assignment.max_team_size > 1)
++  if true
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:5452a
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+-  if (@participant.assignment.max_team_size > 1)
++  if false
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:76a83
+@@ -1,18 +1,10 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+-    team = @participant.team
+-    unless team.nil?
+-      unless team.has_user(session[:user])
+-        redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+-        return true
+-      end
+-    end
+-  else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:da316
+@@ -1,18 +1,11 @@
+ def redirect_when_disallowed
+-  if (@participant.assignment.max_team_size > 1)
+-    team = @participant.team
+-    unless team.nil?
+-      unless team.has_user(session[:user])
+-        redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+-        return true
+-      end
+-    end
+-  else
+-    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+-    unless current_user_id?(reviewer.user_id)
++  team = @participant.team
++  unless team.nil?
++    unless team.has_user(session[:user])
++      redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:3521c
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+-    team = @participant.team
++    nil
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:9ea7a
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+-    team = @participant.team
++    self
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:bde4b
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+-    team = @participant.team
++    team__mutant__ = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:627c2
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+-    team = @participant.team
++    team = nil
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:d14ff
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+-    team = @participant.team
++    team = self
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:9fb5e
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+-    team = @participant.team
++    team = @participant
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:7fc86
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+-    team = @participant.team
++    team = participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:ef84e
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+-    team = @participant.team
++    team = self.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:97057
+@@ -1,18 +1,12 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+-    unless team.nil?
+-      unless team.has_user(session[:user])
+-        redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+-        return true
+-      end
+-    end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:e1ec4
+@@ -1,18 +1,13 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+-    unless team.nil?
+-      unless team.has_user(session[:user])
+-        redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+-        return true
+-      end
+-    end
++    nil
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:870f2
+@@ -1,18 +1,13 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+-    unless team.nil?
+-      unless team.has_user(session[:user])
+-        redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+-        return true
+-      end
+-    end
++    self
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:85534
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+-    unless team.nil?
++    unless nil
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:327d8
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+-    unless team.nil?
++    unless team
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:c6320
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+-    unless team.nil?
++    unless self.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:c84c7
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+-    unless team.nil?
++    unless (!team.nil?)
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:1de7f
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+-    unless team.nil?
++    unless true
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:312fb
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+-    unless team.nil?
++    unless false
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:202a4
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+-    unless team.nil?
++    if team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:f23cc
+@@ -1,18 +1,16 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+-    unless team.nil?
+-      unless team.has_user(session[:user])
+-        redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+-        return true
+-      end
++    unless team.has_user(session[:user])
++      redirect_to("/denied?reason=You are not on the team that wrote this feedback")
++      return true
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:30682
+@@ -1,18 +1,15 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+-      unless team.has_user(session[:user])
+-        redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+-        return true
+-      end
++      nil
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:5de1d
+@@ -1,18 +1,15 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+-      unless team.has_user(session[:user])
+-        redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+-        return true
+-      end
++      self
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:aeb34
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+-      unless team.has_user(session[:user])
++      unless nil
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:4e1bd
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+-      unless team.has_user(session[:user])
++      unless team
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:52370
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+-      unless team.has_user(session[:user])
++      unless session[:user]
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:99d61
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+-      unless team.has_user(session[:user])
++      unless self.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:2b30d
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+-      unless team.has_user(session[:user])
++      unless team.has_user
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:9f6af
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+-      unless team.has_user(session[:user])
++      unless team.has_user(nil)
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:3ec7e
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+-      unless team.has_user(session[:user])
++      unless team.has_user(self)
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:99b6e
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+-      unless team.has_user(session[:user])
++      unless team.has_user(session)
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:8174d
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+-      unless team.has_user(session[:user])
++      unless team.has_user(session.at(:user))
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:4dfae
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+-      unless team.has_user(session[:user])
++      unless team.has_user(session.fetch(:user))
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:cd573
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+-      unless team.has_user(session[:user])
++      unless team.has_user(session.key?(:user))
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:a7f1e
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+-      unless team.has_user(session[:user])
++      unless team.has_user(:user)
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:5c907
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+-      unless team.has_user(session[:user])
++      unless team.has_user(self[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:5552c
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+-      unless team.has_user(session[:user])
++      unless team.has_user(session[])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:4e052
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+-      unless team.has_user(session[:user])
++      unless team.has_user(session[nil])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:720d4
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+-      unless team.has_user(session[:user])
++      unless team.has_user(session[self])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:1f904
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+-      unless team.has_user(session[:user])
++      unless team.has_user(session[:user__mutant__])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:b32fe
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+-      unless team.has_user(session[:user])
++      unless (!team.has_user(session[:user]))
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:d90f9
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+-      unless team.has_user(session[:user])
++      unless true
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:2b3a6
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+-      unless team.has_user(session[:user])
++      unless false
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:99f3f
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+-      unless team.has_user(session[:user])
++      if team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:5c2dc
+@@ -1,18 +1,16 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+-      unless team.has_user(session[:user])
+-        redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+-        return true
+-      end
++      redirect_to("/denied?reason=You are not on the team that wrote this feedback")
++      return true
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:1a0e1
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+-        redirect_to("/denied?reason=You are not on the team that wrote this feedback")
++        nil
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:31176
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+-        redirect_to("/denied?reason=You are not on the team that wrote this feedback")
++        self
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:3dec0
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+-        redirect_to("/denied?reason=You are not on the team that wrote this feedback")
++        "/denied?reason=You are not on the team that wrote this feedback"
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:ce354
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+-        redirect_to("/denied?reason=You are not on the team that wrote this feedback")
++        redirect_to
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:d2830
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+-        redirect_to("/denied?reason=You are not on the team that wrote this feedback")
++        redirect_to(nil)
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:9cb4d
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+-        redirect_to("/denied?reason=You are not on the team that wrote this feedback")
++        redirect_to(self)
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:2abed
+@@ -1,18 +1,17 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+-        return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:03ae7
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+-        return true
++        nil
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:dc18c
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+-        return true
++        self
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:8dc2e
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+-        return true
++        true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:49dec
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+-        return true
++        return nil
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:7286b
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+-        return true
++        return false
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:abcf6
+@@ -1,18 +1,17 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+-        redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:a9403
+@@ -1,18 +1,17 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+-    team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:cabc0
+@@ -1,18 +1,13 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+-  else
+-    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+-    unless current_user_id?(reviewer.user_id)
+-      return true
+-    end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:89e23
+@@ -1,18 +1,8 @@
+ def redirect_when_disallowed
+-  if (@participant.assignment.max_team_size > 1)
+-    team = @participant.team
+-    unless team.nil?
+-      unless team.has_user(session[:user])
+-        redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+-        return true
+-      end
+-    end
+-  else
+-    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+-    unless current_user_id?(reviewer.user_id)
+-      return true
+-    end
++  reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
++  unless current_user_id?(reviewer.user_id)
++    return true
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:d5679
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+-    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
++    nil
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:d6515
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+-    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
++    self
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:d1540
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+-    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
++    reviewer__mutant__ = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:7b62f
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+-    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
++    reviewer = nil
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:51a6b
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+-    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
++    reviewer = self
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:dfe74
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+-    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
++    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id)
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:8349b
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+-    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
++    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).last
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:3af0e
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+-    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
++    reviewer = self.first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:57b69
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+-    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
++    reviewer = AssignmentParticipant.first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:3df4a
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+-    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
++    reviewer = { user_id: session[:user].id, parent_id: @participant.assignment.id }.first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:7999f
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+-    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
++    reviewer = self.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:6c3fc
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+-    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
++    reviewer = AssignmentParticipant.where.first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:83d57
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+-    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
++    reviewer = AssignmentParticipant.where(nil).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:31151
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+-    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
++    reviewer = AssignmentParticipant.where(self).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:4ba5b
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+-    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
++    reviewer = AssignmentParticipant.where({}).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:18cd7
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+-    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
++    reviewer = AssignmentParticipant.where(nil => session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:4e0d8
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+-    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
++    reviewer = AssignmentParticipant.where(self => session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:d1f10
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+-    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
++    reviewer = AssignmentParticipant.where(user_id__mutant__: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:0fd1b
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+-    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
++    reviewer = AssignmentParticipant.where(user_id: nil, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:543db
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+-    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
++    reviewer = AssignmentParticipant.where(user_id: self, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:3199c
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+-    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
++    reviewer = AssignmentParticipant.where(user_id: session[:user], parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:c9a9d
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+-    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
++    reviewer = AssignmentParticipant.where(user_id: self.id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:5708b
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+-    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
++    reviewer = AssignmentParticipant.where(user_id: session.id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:7bd19
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+-    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
++    reviewer = AssignmentParticipant.where(user_id: session.at(:user).id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:48e31
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+-    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
++    reviewer = AssignmentParticipant.where(user_id: session.fetch(:user).id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:04a84
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+-    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
++    reviewer = AssignmentParticipant.where(user_id: session.key?(:user).id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:2b1be
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+-    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
++    reviewer = AssignmentParticipant.where(user_id: :user.id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:7ac92
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+-    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
++    reviewer = AssignmentParticipant.where(user_id: self[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:e38a0
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+-    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
++    reviewer = AssignmentParticipant.where(user_id: session[].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:faf89
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+-    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
++    reviewer = AssignmentParticipant.where(user_id: session[nil].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:fb83b
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+-    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
++    reviewer = AssignmentParticipant.where(user_id: session[self].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:05ed8
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+-    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
++    reviewer = AssignmentParticipant.where(user_id: session[:user__mutant__].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:8a993
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+-    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
++    reviewer = AssignmentParticipant.where(parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:1ef56
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+-    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
++    reviewer = AssignmentParticipant.where(user_id: session[:user].id, nil => @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:c858f
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+-    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
++    reviewer = AssignmentParticipant.where(user_id: session[:user].id, self => @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:c0082
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+-    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
++    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id__mutant__: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:7e253
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+-    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
++    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: nil).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:3e9e9
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+-    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
++    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: self).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:c15b2
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+-    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
++    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:ca74a
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+-    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
++    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: self.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:358d0
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+-    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
++    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:494b8
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+-    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
++    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:b3a16
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+-    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
++    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: self.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:e176e
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+-    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
++    reviewer = AssignmentParticipant.where(user_id: session[:user].id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:c9f10
+@@ -1,18 +1,15 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+-    unless current_user_id?(reviewer.user_id)
+-      return true
+-    end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:be1a2
+@@ -1,18 +1,16 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+-    unless current_user_id?(reviewer.user_id)
+-      return true
+-    end
++    nil
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:3af9e
+@@ -1,18 +1,16 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+-    unless current_user_id?(reviewer.user_id)
+-      return true
+-    end
++    self
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:0682f
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+-    unless current_user_id?(reviewer.user_id)
++    unless nil
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:20f26
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+-    unless current_user_id?(reviewer.user_id)
++    unless reviewer.user_id
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:2aed1
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+-    unless current_user_id?(reviewer.user_id)
++    unless current_user_id?
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:8e02c
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+-    unless current_user_id?(reviewer.user_id)
++    unless current_user_id?(nil)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:86f4e
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+-    unless current_user_id?(reviewer.user_id)
++    unless current_user_id?(self)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:07bab
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+-    unless current_user_id?(reviewer.user_id)
++    unless current_user_id?(reviewer)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:a77ad
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+-    unless current_user_id?(reviewer.user_id)
++    unless current_user_id?(self.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:d8ef8
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+-    unless current_user_id?(reviewer.user_id)
++    unless (!current_user_id?(reviewer.user_id))
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:76dba
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+-    unless current_user_id?(reviewer.user_id)
++    unless true
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:49739
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+-    unless current_user_id?(reviewer.user_id)
++    unless false
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:e581c
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+-    unless current_user_id?(reviewer.user_id)
++    if current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:2dd07
+@@ -1,18 +1,16 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+-    unless current_user_id?(reviewer.user_id)
+-      return true
+-    end
++    return true
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:bc2fe
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+-      return true
++      nil
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:d39af
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+-      return true
++      self
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:3ae53
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+-      return true
++      true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:7effc
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+-      return true
++      return nil
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:de9e4
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+-      return true
++      return false
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:ae3b0
+@@ -1,18 +1,17 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+-    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:a8f3d
+@@ -1,18 +1,10 @@
+ def redirect_when_disallowed
+-  if (@participant.assignment.max_team_size > 1)
+-    team = @participant.team
+-    unless team.nil?
+-      unless team.has_user(session[:user])
+-        redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+-        return true
+-      end
+-    end
+-  else
++  unless (@participant.assignment.max_team_size > 1)
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+   false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:88623
+@@ -1,18 +1,17 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+-  false
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:40ee4
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+-  false
++  nil
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:9bce2
+@@ -1,18 +1,18 @@
+ def redirect_when_disallowed
+   if (@participant.assignment.max_team_size > 1)
+     team = @participant.team
+     unless team.nil?
+       unless team.has_user(session[:user])
+         redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+         return true
+       end
+     end
+   else
+     reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+     unless current_user_id?(reviewer.user_id)
+       return true
+     end
+   end
+-  false
++  true
+ end
+-----------------------
+evil:GradesController#redirect_when_disallowed:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/grades_controller.rb:2:18286
+@@ -1,18 +1,4 @@
+ def redirect_when_disallowed
+-  if (@participant.assignment.max_team_size > 1)
+-    team = @participant.team
+-    unless team.nil?
+-      unless team.has_user(session[:user])
+-        redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+-        return true
+-      end
+-    end
+-  else
+-    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+-    unless current_user_id?(reviewer.user_id)
+-      return true
+-    end
+-  end
+   false
+ end
+-----------------------
+Mutant configuration:
+Matcher:         #<Mutant::Matcher::Config match_expressions: [GradesController]>
+Integration:     Mutant::Integration::Null
+Jobs:            1
+Includes:        []
+Requires:        ["./config/environment"]
+Subjects:        1
+Mutations:       158
+Results:         158
+Kills:           1
+Alive:           157
+Runtime:         25.09s
+Killtime:        0.00s
+Overhead:        Inf%
+Mutations/s:     6.30
+Coverage:        0.63%

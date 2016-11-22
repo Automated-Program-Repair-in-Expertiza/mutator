@@ -1,0 +1,2300 @@
+Mutant configuration:
+Matcher:         #<Mutant::Matcher::Config match_expressions: [UsersController]>
+Integration:     Mutant::Integration::Null
+Jobs:            1
+Includes:        []
+Requires:        ["./config/environment"]
+(00/161) 100% - killtime: 0.00s runtime: 0.00s overhead: 0.00s
+(01/161)  33% - killtime: 0.00s runtime: 1.01s overhead: 1.01s
+(01/161)  14% - killtime: 0.00s runtime: 2.01s overhead: 2.01s
+(01/161)  10% - killtime: 0.00s runtime: 3.02s overhead: 3.02s
+(01/161)   7% - killtime: 0.00s runtime: 4.02s overhead: 4.02s
+(01/161)   5% - killtime: 0.00s runtime: 5.02s overhead: 5.02s
+(01/161)   4% - killtime: 0.00s runtime: 6.03s overhead: 6.03s
+(01/161)   3% - killtime: 0.00s runtime: 7.05s overhead: 7.05s
+(01/161)   3% - killtime: 0.00s runtime: 8.05s overhead: 8.05s
+(01/161)   3% - killtime: 0.00s runtime: 9.05s overhead: 9.05s
+(01/161)   2% - killtime: 0.00s runtime: 10.05s overhead: 10.05s
+(01/161)   2% - killtime: 0.00s runtime: 11.05s overhead: 11.05s
+(01/161)   2% - killtime: 0.00s runtime: 12.06s overhead: 12.06s
+(01/161)   2% - killtime: 0.00s runtime: 13.06s overhead: 13.06s
+(01/161)   1% - killtime: 0.00s runtime: 14.06s overhead: 14.06s
+(01/161)   1% - killtime: 0.00s runtime: 15.06s overhead: 15.06s
+(01/161)   1% - killtime: 0.00s runtime: 16.07s overhead: 16.07s
+(01/161)   1% - killtime: 0.00s runtime: 17.07s overhead: 17.07s
+(01/161)   1% - killtime: 0.00s runtime: 18.07s overhead: 18.07s
+(01/161)   1% - killtime: 0.00s runtime: 19.07s overhead: 19.07s
+(01/161)   1% - killtime: 0.00s runtime: 20.07s overhead: 20.07s
+(01/161)   1% - killtime: 0.00s runtime: 21.08s overhead: 21.08s
+(01/161)   1% - killtime: 0.00s runtime: 22.08s overhead: 22.08s
+(01/161)   1% - killtime: 0.00s runtime: 23.08s overhead: 23.08s
+(01/161)   1% - killtime: 0.00s runtime: 24.08s overhead: 24.08s
+(01/161)   1% - killtime: 0.00s runtime: 25.08s overhead: 25.08s
+(01/161)   1% - killtime: 0.00s runtime: 26.09s overhead: 26.09s
+(01/161)   1% - killtime: 0.00s runtime: 27.09s overhead: 27.09s
+(01/161)   0% - killtime: 0.00s runtime: 28.10s overhead: 28.10s
+(01/161)   0% - killtime: 0.00s runtime: 29.10s overhead: 29.10s
+(01/161)   0% - killtime: 0.00s runtime: 30.11s overhead: 30.11s
+(01/161)   0% - killtime: 0.00s runtime: 31.11s overhead: 31.11s
+(01/161)   0% - killtime: 0.00s runtime: 32.11s overhead: 32.11s
+(01/161)   0% - killtime: 0.00s runtime: 33.11s overhead: 33.11s
+(01/161)   0% - killtime: 0.00s runtime: 34.11s overhead: 34.11s
+(01/161)   0% - killtime: 0.00s runtime: 35.12s overhead: 35.12s
+(01/161)   0% - killtime: 0.00s runtime: 36.13s overhead: 36.13s
+(01/161)   0% - killtime: 0.00s runtime: 37.13s overhead: 37.13s
+(01/161)   0% - killtime: 0.00s runtime: 38.13s overhead: 38.13s
+(01/161)   0% - killtime: 0.00s runtime: 39.13s overhead: 39.13s
+(01/161)   0% - killtime: 0.00s runtime: 40.14s overhead: 40.14s
+(01/161)   0% - killtime: 0.00s runtime: 41.14s overhead: 41.14s
+(01/161)   0% - killtime: 0.00s runtime: 42.14s overhead: 42.14s
+(01/161)   0% - killtime: 0.00s runtime: 43.15s overhead: 43.15s
+UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:b9597
+@@ -1,11 +1,11 @@
+-def paginate_list(users)
++def paginate_list
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:84425
+@@ -1,11 +1,11 @@
+-def paginate_list(users)
++def paginate_list(_users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:a6a6c
+@@ -1,11 +1,4 @@
+ def paginate_list(users)
+-  paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+-  @search_by = params[:search_by]
+-  users = if paginate_options[@per_page.to_s].nil?
+-    users.paginate(page: params[:page], per_page: users.count)
+-  else
+-    users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+-  end
+-  users
++  raise
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:4ac92
+@@ -1,11 +1,3 @@
+ def paginate_list(users)
+-  paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+-  @search_by = params[:search_by]
+-  users = if paginate_options[@per_page.to_s].nil?
+-    users.paginate(page: params[:page], per_page: users.count)
+-  else
+-    users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+-  end
+-  users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:0c9c0
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+-  paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
++  nil
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:1fcc6
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+-  paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
++  self
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:455f8
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+-  paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
++  paginate_options__mutant__ = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:05a1f
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+-  paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
++  paginate_options = nil
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:801d2
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+-  paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
++  paginate_options = self
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:e17b4
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+-  paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
++  paginate_options = {}
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:f884d
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+-  paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
++  paginate_options = { nil => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:ae8ab
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+-  paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
++  paginate_options = { self => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:21820
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+-  paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
++  paginate_options = { "1" => nil, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:13753
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+-  paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
++  paginate_options = { "1" => self, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:d880b
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+-  paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
++  paginate_options = { "1" => 0, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:64d6d
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+-  paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
++  paginate_options = { "1" => 1, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:af355
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+-  paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
++  paginate_options = { "1" => -25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:b2932
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+-  paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
++  paginate_options = { "1" => 26, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:2f9eb
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+-  paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
++  paginate_options = { "1" => 24, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:2431e
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+-  paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
++  paginate_options = { "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:288da
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+-  paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
++  paginate_options = { "1" => 25, nil => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:49cb9
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+-  paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
++  paginate_options = { "1" => 25, self => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:98f1c
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+-  paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
++  paginate_options = { "1" => 25, "2" => nil, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:e2f9e
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+-  paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
++  paginate_options = { "1" => 25, "2" => self, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:261c8
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+-  paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
++  paginate_options = { "1" => 25, "2" => 0, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:71512
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+-  paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
++  paginate_options = { "1" => 25, "2" => 1, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:0df2c
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+-  paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
++  paginate_options = { "1" => 25, "2" => -50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:f6818
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+-  paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
++  paginate_options = { "1" => 25, "2" => 51, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:9172b
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+-  paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
++  paginate_options = { "1" => 25, "2" => 49, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:ffa03
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+-  paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
++  paginate_options = { "1" => 25, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:465ed
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+-  paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
++  paginate_options = { "1" => 25, "2" => 50, nil => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:29cae
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+-  paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
++  paginate_options = { "1" => 25, "2" => 50, self => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:9714d
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+-  paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
++  paginate_options = { "1" => 25, "2" => 50, "3" => nil }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:539a3
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+-  paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
++  paginate_options = { "1" => 25, "2" => 50, "3" => self }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:31046
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+-  paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
++  paginate_options = { "1" => 25, "2" => 50, "3" => 0 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:1bb0a
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+-  paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
++  paginate_options = { "1" => 25, "2" => 50, "3" => 1 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:58339
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+-  paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
++  paginate_options = { "1" => 25, "2" => 50, "3" => -100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:8cb7a
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+-  paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
++  paginate_options = { "1" => 25, "2" => 50, "3" => 101 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:fd640
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+-  paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
++  paginate_options = { "1" => 25, "2" => 50, "3" => 99 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:77da2
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+-  paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
++  paginate_options = { "1" => 25, "2" => 50 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:22203
+@@ -1,11 +1,4 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+-  @search_by = params[:search_by]
+-  users = if paginate_options[@per_page.to_s].nil?
+-    users.paginate(page: params[:page], per_page: users.count)
+-  else
+-    users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+-  end
+-  users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:a86ee
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+-  @search_by = params[:search_by]
++  nil
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:9a2ed
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+-  @search_by = params[:search_by]
++  self
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:16662
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+-  @search_by = params[:search_by]
++  @search_by__mutant__ = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:142b4
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+-  @search_by = params[:search_by]
++  @search_by = nil
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:536dc
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+-  @search_by = params[:search_by]
++  @search_by = self
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:54632
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+-  @search_by = params[:search_by]
++  @search_by = params
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:60a9c
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+-  @search_by = params[:search_by]
++  @search_by = params.at(:search_by)
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:230c2
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+-  @search_by = params[:search_by]
++  @search_by = params.fetch(:search_by)
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:edb99
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+-  @search_by = params[:search_by]
++  @search_by = params.key?(:search_by)
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:80d8d
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+-  @search_by = params[:search_by]
++  @search_by = :search_by
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:24f29
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+-  @search_by = params[:search_by]
++  @search_by = self[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:3d2c5
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+-  @search_by = params[:search_by]
++  @search_by = params[]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:bc44e
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+-  @search_by = params[:search_by]
++  @search_by = params[nil]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:16fad
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+-  @search_by = params[:search_by]
++  @search_by = params[self]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:57d9b
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+-  @search_by = params[:search_by]
++  @search_by = params[:search_by__mutant__]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:8aebd
+@@ -1,11 +1,5 @@
+ def paginate_list(users)
+-  paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+-  users = if paginate_options[@per_page.to_s].nil?
+-    users.paginate(page: params[:page], per_page: users.count)
+-  else
+-    users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+-  end
+-  users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:e7c39
+@@ -1,11 +1,7 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+-  users = if paginate_options[@per_page.to_s].nil?
+-    users.paginate(page: params[:page], per_page: users.count)
+-  else
+-    users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+-  end
++  nil
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:3fc35
+@@ -1,11 +1,7 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+-  users = if paginate_options[@per_page.to_s].nil?
+-    users.paginate(page: params[:page], per_page: users.count)
+-  else
+-    users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+-  end
++  self
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:8116e
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+-  users = if paginate_options[@per_page.to_s].nil?
++  users__mutant__ = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:167e6
+@@ -1,11 +1,7 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+-  users = if paginate_options[@per_page.to_s].nil?
+-    users.paginate(page: params[:page], per_page: users.count)
+-  else
+-    users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+-  end
++  users = nil
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:81753
+@@ -1,11 +1,7 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+-  users = if paginate_options[@per_page.to_s].nil?
+-    users.paginate(page: params[:page], per_page: users.count)
+-  else
+-    users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+-  end
++  users = self
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:b189c
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+-  users = if paginate_options[@per_page.to_s].nil?
++  users = if nil
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:fdd76
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+-  users = if paginate_options[@per_page.to_s].nil?
++  users = if paginate_options[@per_page.to_s]
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:62400
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+-  users = if paginate_options[@per_page.to_s].nil?
++  users = if self.nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:1be27
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+-  users = if paginate_options[@per_page.to_s].nil?
++  users = if paginate_options.nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:7eec7
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+-  users = if paginate_options[@per_page.to_s].nil?
++  users = if paginate_options.at(@per_page.to_s).nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:94df0
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+-  users = if paginate_options[@per_page.to_s].nil?
++  users = if paginate_options.fetch(@per_page.to_s).nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:7fbc7
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+-  users = if paginate_options[@per_page.to_s].nil?
++  users = if paginate_options.key?(@per_page.to_s).nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:391b8
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+-  users = if paginate_options[@per_page.to_s].nil?
++  users = if @per_page.to_s.nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:8ae30
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+-  users = if paginate_options[@per_page.to_s].nil?
++  users = if self[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:52022
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+-  users = if paginate_options[@per_page.to_s].nil?
++  users = if paginate_options[].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:1058a
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+-  users = if paginate_options[@per_page.to_s].nil?
++  users = if paginate_options[nil].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:2c8e0
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+-  users = if paginate_options[@per_page.to_s].nil?
++  users = if paginate_options[self].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:b1833
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+-  users = if paginate_options[@per_page.to_s].nil?
++  users = if paginate_options[@per_page].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:f4b09
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+-  users = if paginate_options[@per_page.to_s].nil?
++  users = if paginate_options[@per_page.to_str].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:99f08
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+-  users = if paginate_options[@per_page.to_s].nil?
++  users = if paginate_options[per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:57107
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+-  users = if paginate_options[@per_page.to_s].nil?
++  users = if paginate_options[self.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:d478b
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+-  users = if paginate_options[@per_page.to_s].nil?
++  users = if (!paginate_options[@per_page.to_s].nil?)
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:cbf5a
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+-  users = if paginate_options[@per_page.to_s].nil?
++  users = if true
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:431ae
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+-  users = if paginate_options[@per_page.to_s].nil?
++  users = if false
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:92fe0
+@@ -1,11 +1,9 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+-    users.paginate(page: params[:page], per_page: users.count)
+-  else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:2bc97
+@@ -1,11 +1,7 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+-  users = if paginate_options[@per_page.to_s].nil?
+-    users.paginate(page: params[:page], per_page: users.count)
+-  else
+-    users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+-  end
++  users = users.paginate(page: params[:page], per_page: users.count)
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:7a068
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+-    users.paginate(page: params[:page], per_page: users.count)
++    nil
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:3a899
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+-    users.paginate(page: params[:page], per_page: users.count)
++    self
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:ac80c
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+-    users.paginate(page: params[:page], per_page: users.count)
++    users
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:0b3a1
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+-    users.paginate(page: params[:page], per_page: users.count)
++    { page: params[:page], per_page: users.count }
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:340de
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+-    users.paginate(page: params[:page], per_page: users.count)
++    self.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:1e045
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+-    users.paginate(page: params[:page], per_page: users.count)
++    users.paginate
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:1fbe0
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+-    users.paginate(page: params[:page], per_page: users.count)
++    users.paginate(nil)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:b1505
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+-    users.paginate(page: params[:page], per_page: users.count)
++    users.paginate(self)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:69fa6
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+-    users.paginate(page: params[:page], per_page: users.count)
++    users.paginate({})
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:4d1b6
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+-    users.paginate(page: params[:page], per_page: users.count)
++    users.paginate(nil => params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:d6e36
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+-    users.paginate(page: params[:page], per_page: users.count)
++    users.paginate(self => params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:f38c5
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+-    users.paginate(page: params[:page], per_page: users.count)
++    users.paginate(page__mutant__: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:b6e43
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+-    users.paginate(page: params[:page], per_page: users.count)
++    users.paginate(page: nil, per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:939dc
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+-    users.paginate(page: params[:page], per_page: users.count)
++    users.paginate(page: self, per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:c3b10
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+-    users.paginate(page: params[:page], per_page: users.count)
++    users.paginate(page: params, per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:0fab0
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+-    users.paginate(page: params[:page], per_page: users.count)
++    users.paginate(page: params.at(:page), per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:f59f0
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+-    users.paginate(page: params[:page], per_page: users.count)
++    users.paginate(page: params.fetch(:page), per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:bb8f6
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+-    users.paginate(page: params[:page], per_page: users.count)
++    users.paginate(page: params.key?(:page), per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:30bbd
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+-    users.paginate(page: params[:page], per_page: users.count)
++    users.paginate(page: :page, per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:83d5a
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+-    users.paginate(page: params[:page], per_page: users.count)
++    users.paginate(page: self[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:88165
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+-    users.paginate(page: params[:page], per_page: users.count)
++    users.paginate(page: params[], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:cd439
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+-    users.paginate(page: params[:page], per_page: users.count)
++    users.paginate(page: params[nil], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:9a8dd
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+-    users.paginate(page: params[:page], per_page: users.count)
++    users.paginate(page: params[self], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:dc9ba
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+-    users.paginate(page: params[:page], per_page: users.count)
++    users.paginate(page: params[:page__mutant__], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:ef1d3
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+-    users.paginate(page: params[:page], per_page: users.count)
++    users.paginate(per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:78656
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+-    users.paginate(page: params[:page], per_page: users.count)
++    users.paginate(page: params[:page], nil => users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:5383a
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+-    users.paginate(page: params[:page], per_page: users.count)
++    users.paginate(page: params[:page], self => users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:7d94d
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+-    users.paginate(page: params[:page], per_page: users.count)
++    users.paginate(page: params[:page], per_page__mutant__: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:0b22b
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+-    users.paginate(page: params[:page], per_page: users.count)
++    users.paginate(page: params[:page], per_page: nil)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:f1054
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+-    users.paginate(page: params[:page], per_page: users.count)
++    users.paginate(page: params[:page], per_page: self)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:0cce1
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+-    users.paginate(page: params[:page], per_page: users.count)
++    users.paginate(page: params[:page], per_page: users)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:2f47a
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+-    users.paginate(page: params[:page], per_page: users.count)
++    users.paginate(page: params[:page], per_page: self.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:c8505
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+-    users.paginate(page: params[:page], per_page: users.count)
++    users.paginate(page: params[:page])
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:93f01
+@@ -1,11 +1,9 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+-  else
+-    users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:9f9ba
+@@ -1,11 +1,7 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+-  users = if paginate_options[@per_page.to_s].nil?
+-    users.paginate(page: params[:page], per_page: users.count)
+-  else
+-    users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+-  end
++  users = users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:4f091
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+-    users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
++    nil
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:eed80
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+-    users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
++    self
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:7556b
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+-    users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
++    users.page(params[:page])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:3dd8c
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+-    users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
++    paginate_options[@per_page.to_s]
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:15db1
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+-    users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
++    self.per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:aea44
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+-    users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
++    users.per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:d9b88
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+-    users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
++    params[:page].per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:b940e
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+-    users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
++    self.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:a8d6c
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+-    users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
++    users.page.per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:bd91d
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+-    users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
++    users.page(nil).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:88261
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+-    users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
++    users.page(self).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:10332
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+-    users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
++    users.page(params).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:47f72
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+-    users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
++    users.page(params.at(:page)).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:5ca79
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+-    users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
++    users.page(params.fetch(:page)).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:d07d3
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+-    users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
++    users.page(params.key?(:page)).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:89d08
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+-    users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
++    users.page(:page).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:491c4
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+-    users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
++    users.page(self[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:33492
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+-    users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
++    users.page(params[]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:eff94
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+-    users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
++    users.page(params[nil]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:4b8a5
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+-    users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
++    users.page(params[self]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:65e16
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+-    users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
++    users.page(params[:page__mutant__]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:7df58
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+-    users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
++    users.page(params[:page]).per_page
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:d1e1d
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+-    users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
++    users.page(params[:page]).per_page(nil)
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:4971f
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+-    users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
++    users.page(params[:page]).per_page(self)
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:678d9
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+-    users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
++    users.page(params[:page]).per_page(paginate_options)
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:ebc16
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+-    users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
++    users.page(params[:page]).per_page(paginate_options.at(@per_page.to_s))
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:1f618
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+-    users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
++    users.page(params[:page]).per_page(paginate_options.fetch(@per_page.to_s))
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:99399
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+-    users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
++    users.page(params[:page]).per_page(paginate_options.key?(@per_page.to_s))
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:76c90
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+-    users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
++    users.page(params[:page]).per_page(@per_page.to_s)
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:1311a
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+-    users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
++    users.page(params[:page]).per_page(self[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:700f5
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+-    users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
++    users.page(params[:page]).per_page(paginate_options[])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:0a476
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+-    users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
++    users.page(params[:page]).per_page(paginate_options[nil])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:94cb8
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+-    users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
++    users.page(params[:page]).per_page(paginate_options[self])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:7cd23
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+-    users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
++    users.page(params[:page]).per_page(paginate_options[@per_page])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:03a80
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+-    users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
++    users.page(params[:page]).per_page(paginate_options[@per_page.to_str])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:c79c8
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+-    users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
++    users.page(params[:page]).per_page(paginate_options[per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:b823c
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+-    users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
++    users.page(params[:page]).per_page(paginate_options[self.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:4623d
+@@ -1,11 +1,9 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+-  users = if paginate_options[@per_page.to_s].nil?
+-    users.paginate(page: params[:page], per_page: users.count)
+-  else
++  users = unless paginate_options[@per_page.to_s].nil?
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+   users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:10fab
+@@ -1,11 +1,10 @@
+ def paginate_list(users)
+-  paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+-  @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+-  users
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:7bc46
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+-  users
++  nil
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:7466e
+@@ -1,11 +1,11 @@
+ def paginate_list(users)
+   paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+   @search_by = params[:search_by]
+   users = if paginate_options[@per_page.to_s].nil?
+     users.paginate(page: params[:page], per_page: users.count)
+   else
+     users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+   end
+-  users
++  self
+ end
+-----------------------
+evil:UsersController#paginate_list:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/users_controller.rb:2:15761
+@@ -1,11 +1,4 @@
+ def paginate_list(users)
+-  paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+-  @search_by = params[:search_by]
+-  users = if paginate_options[@per_page.to_s].nil?
+-    users.paginate(page: params[:page], per_page: users.count)
+-  else
+-    users.page(params[:page]).per_page(paginate_options[@per_page.to_s])
+-  end
+   users
+ end
+-----------------------
+Mutant configuration:
+Matcher:         #<Mutant::Matcher::Config match_expressions: [UsersController]>
+Integration:     Mutant::Integration::Null
+Jobs:            1
+Includes:        []
+Requires:        ["./config/environment"]
+Subjects:        1
+Mutations:       161
+Results:         161
+Kills:           1
+Alive:           160
+Runtime:         43.15s
+Killtime:        0.00s
+Overhead:        Inf%
+Mutations/s:     3.73
+Coverage:        0.62%

@@ -1,0 +1,1096 @@
+Mutant configuration:
+Matcher:         #<Mutant::Matcher::Config match_expressions: [MenuItemsController]>
+Integration:     Mutant::Integration::Null
+Jobs:            1
+Includes:        []
+Requires:        ["./config/environment"]
+(00/77) 100% - killtime: 0.00s runtime: 0.00s overhead: 0.00s
+(01/77)  20% - killtime: 0.00s runtime: 1.01s overhead: 1.01s
+(01/77)   9% - killtime: 0.00s runtime: 2.01s overhead: 2.01s
+(01/77)   5% - killtime: 0.00s runtime: 3.01s overhead: 3.01s
+(01/77)   4% - killtime: 0.00s runtime: 4.01s overhead: 4.01s
+(01/77)   4% - killtime: 0.00s runtime: 5.03s overhead: 5.03s
+(01/77)   3% - killtime: 0.00s runtime: 6.03s overhead: 6.03s
+(01/77)   2% - killtime: 0.00s runtime: 7.03s overhead: 7.03s
+(01/77)   2% - killtime: 0.00s runtime: 8.03s overhead: 8.03s
+(01/77)   2% - killtime: 0.00s runtime: 9.03s overhead: 9.03s
+(01/77)   1% - killtime: 0.00s runtime: 10.04s overhead: 10.04s
+(01/77)   1% - killtime: 0.00s runtime: 11.04s overhead: 11.04s
+(01/77)   1% - killtime: 0.00s runtime: 12.04s overhead: 12.04s
+(01/77)   1% - killtime: 0.00s runtime: 13.04s overhead: 13.04s
+(01/77)   1% - killtime: 0.00s runtime: 14.04s overhead: 14.04s
+(01/77)   1% - killtime: 0.00s runtime: 15.04s overhead: 15.04s
+MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:c8532
+@@ -1,11 +1,4 @@
+ def link
+-  str = params[:name]
+-  node = session[:menu].select(str)
+-  if node
+-    redirect_to(node.url)
+-  else
+-    logger.error("(error in menu)")
+-    redirect_to("/")
+-  end
++  raise
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:956aa
+@@ -1,11 +1,3 @@
+ def link
+-  str = params[:name]
+-  node = session[:menu].select(str)
+-  if node
+-    redirect_to(node.url)
+-  else
+-    logger.error("(error in menu)")
+-    redirect_to("/")
+-  end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:a8b00
+@@ -1,11 +1,11 @@
+ def link
+-  str = params[:name]
++  nil
+   node = session[:menu].select(str)
+   if node
+     redirect_to(node.url)
+   else
+     logger.error("(error in menu)")
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:8a6b0
+@@ -1,11 +1,11 @@
+ def link
+-  str = params[:name]
++  self
+   node = session[:menu].select(str)
+   if node
+     redirect_to(node.url)
+   else
+     logger.error("(error in menu)")
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:4a2ff
+@@ -1,11 +1,11 @@
+ def link
+-  str = params[:name]
++  str__mutant__ = params[:name]
+   node = session[:menu].select(str)
+   if node
+     redirect_to(node.url)
+   else
+     logger.error("(error in menu)")
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:f1fac
+@@ -1,11 +1,11 @@
+ def link
+-  str = params[:name]
++  str = nil
+   node = session[:menu].select(str)
+   if node
+     redirect_to(node.url)
+   else
+     logger.error("(error in menu)")
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:64c9d
+@@ -1,11 +1,11 @@
+ def link
+-  str = params[:name]
++  str = self
+   node = session[:menu].select(str)
+   if node
+     redirect_to(node.url)
+   else
+     logger.error("(error in menu)")
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:4a904
+@@ -1,11 +1,11 @@
+ def link
+-  str = params[:name]
++  str = params
+   node = session[:menu].select(str)
+   if node
+     redirect_to(node.url)
+   else
+     logger.error("(error in menu)")
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:22f2b
+@@ -1,11 +1,11 @@
+ def link
+-  str = params[:name]
++  str = params.at(:name)
+   node = session[:menu].select(str)
+   if node
+     redirect_to(node.url)
+   else
+     logger.error("(error in menu)")
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:299c6
+@@ -1,11 +1,11 @@
+ def link
+-  str = params[:name]
++  str = params.fetch(:name)
+   node = session[:menu].select(str)
+   if node
+     redirect_to(node.url)
+   else
+     logger.error("(error in menu)")
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:4ff31
+@@ -1,11 +1,11 @@
+ def link
+-  str = params[:name]
++  str = params.key?(:name)
+   node = session[:menu].select(str)
+   if node
+     redirect_to(node.url)
+   else
+     logger.error("(error in menu)")
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:f6739
+@@ -1,11 +1,11 @@
+ def link
+-  str = params[:name]
++  str = :name
+   node = session[:menu].select(str)
+   if node
+     redirect_to(node.url)
+   else
+     logger.error("(error in menu)")
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:8b8dd
+@@ -1,11 +1,11 @@
+ def link
+-  str = params[:name]
++  str = self[:name]
+   node = session[:menu].select(str)
+   if node
+     redirect_to(node.url)
+   else
+     logger.error("(error in menu)")
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:2482e
+@@ -1,11 +1,11 @@
+ def link
+-  str = params[:name]
++  str = params[]
+   node = session[:menu].select(str)
+   if node
+     redirect_to(node.url)
+   else
+     logger.error("(error in menu)")
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:461da
+@@ -1,11 +1,11 @@
+ def link
+-  str = params[:name]
++  str = params[nil]
+   node = session[:menu].select(str)
+   if node
+     redirect_to(node.url)
+   else
+     logger.error("(error in menu)")
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:3e706
+@@ -1,11 +1,11 @@
+ def link
+-  str = params[:name]
++  str = params[self]
+   node = session[:menu].select(str)
+   if node
+     redirect_to(node.url)
+   else
+     logger.error("(error in menu)")
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:e1c52
+@@ -1,11 +1,11 @@
+ def link
+-  str = params[:name]
++  str = params[:name__mutant__]
+   node = session[:menu].select(str)
+   if node
+     redirect_to(node.url)
+   else
+     logger.error("(error in menu)")
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:550b7
+@@ -1,11 +1,4 @@
+ def link
+   str = params[:name]
+-  node = session[:menu].select(str)
+-  if node
+-    redirect_to(node.url)
+-  else
+-    logger.error("(error in menu)")
+-    redirect_to("/")
+-  end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:45248
+@@ -1,11 +1,11 @@
+ def link
+   str = params[:name]
+-  node = session[:menu].select(str)
++  nil
+   if node
+     redirect_to(node.url)
+   else
+     logger.error("(error in menu)")
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:f1ceb
+@@ -1,11 +1,11 @@
+ def link
+   str = params[:name]
+-  node = session[:menu].select(str)
++  self
+   if node
+     redirect_to(node.url)
+   else
+     logger.error("(error in menu)")
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:86b83
+@@ -1,11 +1,11 @@
+ def link
+   str = params[:name]
+-  node = session[:menu].select(str)
++  node__mutant__ = session[:menu].select(str)
+   if node
+     redirect_to(node.url)
+   else
+     logger.error("(error in menu)")
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:0a9d1
+@@ -1,11 +1,11 @@
+ def link
+   str = params[:name]
+-  node = session[:menu].select(str)
++  node = nil
+   if node
+     redirect_to(node.url)
+   else
+     logger.error("(error in menu)")
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:eb39c
+@@ -1,11 +1,11 @@
+ def link
+   str = params[:name]
+-  node = session[:menu].select(str)
++  node = self
+   if node
+     redirect_to(node.url)
+   else
+     logger.error("(error in menu)")
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:7b239
+@@ -1,11 +1,11 @@
+ def link
+   str = params[:name]
+-  node = session[:menu].select(str)
++  node = session[:menu]
+   if node
+     redirect_to(node.url)
+   else
+     logger.error("(error in menu)")
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:2620c
+@@ -1,11 +1,11 @@
+ def link
+   str = params[:name]
+-  node = session[:menu].select(str)
++  node = str
+   if node
+     redirect_to(node.url)
+   else
+     logger.error("(error in menu)")
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:fc422
+@@ -1,11 +1,11 @@
+ def link
+   str = params[:name]
+-  node = session[:menu].select(str)
++  node = self.select(str)
+   if node
+     redirect_to(node.url)
+   else
+     logger.error("(error in menu)")
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:95034
+@@ -1,11 +1,11 @@
+ def link
+   str = params[:name]
+-  node = session[:menu].select(str)
++  node = session.select(str)
+   if node
+     redirect_to(node.url)
+   else
+     logger.error("(error in menu)")
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:79c53
+@@ -1,11 +1,11 @@
+ def link
+   str = params[:name]
+-  node = session[:menu].select(str)
++  node = session.at(:menu).select(str)
+   if node
+     redirect_to(node.url)
+   else
+     logger.error("(error in menu)")
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:b7c3e
+@@ -1,11 +1,11 @@
+ def link
+   str = params[:name]
+-  node = session[:menu].select(str)
++  node = session.fetch(:menu).select(str)
+   if node
+     redirect_to(node.url)
+   else
+     logger.error("(error in menu)")
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:89dc1
+@@ -1,11 +1,11 @@
+ def link
+   str = params[:name]
+-  node = session[:menu].select(str)
++  node = session.key?(:menu).select(str)
+   if node
+     redirect_to(node.url)
+   else
+     logger.error("(error in menu)")
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:9c989
+@@ -1,11 +1,11 @@
+ def link
+   str = params[:name]
+-  node = session[:menu].select(str)
++  node = :menu.select(str)
+   if node
+     redirect_to(node.url)
+   else
+     logger.error("(error in menu)")
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:b3c1e
+@@ -1,11 +1,11 @@
+ def link
+   str = params[:name]
+-  node = session[:menu].select(str)
++  node = self[:menu].select(str)
+   if node
+     redirect_to(node.url)
+   else
+     logger.error("(error in menu)")
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:dc4da
+@@ -1,11 +1,11 @@
+ def link
+   str = params[:name]
+-  node = session[:menu].select(str)
++  node = session[].select(str)
+   if node
+     redirect_to(node.url)
+   else
+     logger.error("(error in menu)")
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:e8862
+@@ -1,11 +1,11 @@
+ def link
+   str = params[:name]
+-  node = session[:menu].select(str)
++  node = session[nil].select(str)
+   if node
+     redirect_to(node.url)
+   else
+     logger.error("(error in menu)")
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:3a3ef
+@@ -1,11 +1,11 @@
+ def link
+   str = params[:name]
+-  node = session[:menu].select(str)
++  node = session[self].select(str)
+   if node
+     redirect_to(node.url)
+   else
+     logger.error("(error in menu)")
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:43811
+@@ -1,11 +1,11 @@
+ def link
+   str = params[:name]
+-  node = session[:menu].select(str)
++  node = session[:menu__mutant__].select(str)
+   if node
+     redirect_to(node.url)
+   else
+     logger.error("(error in menu)")
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:68792
+@@ -1,11 +1,11 @@
+ def link
+   str = params[:name]
+-  node = session[:menu].select(str)
++  node = session[:menu].select
+   if node
+     redirect_to(node.url)
+   else
+     logger.error("(error in menu)")
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:f4eaf
+@@ -1,11 +1,11 @@
+ def link
+   str = params[:name]
+-  node = session[:menu].select(str)
++  node = session[:menu].select(nil)
+   if node
+     redirect_to(node.url)
+   else
+     logger.error("(error in menu)")
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:de3bf
+@@ -1,11 +1,11 @@
+ def link
+   str = params[:name]
+-  node = session[:menu].select(str)
++  node = session[:menu].select(self)
+   if node
+     redirect_to(node.url)
+   else
+     logger.error("(error in menu)")
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:3a8d9
+@@ -1,11 +1,5 @@
+ def link
+-  str = params[:name]
+   node = session[:menu].select(str)
+-  if node
+-    redirect_to(node.url)
+-  else
+-    logger.error("(error in menu)")
+-    redirect_to("/")
+-  end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:08034
+@@ -1,11 +1,6 @@
+ def link
+   str = params[:name]
+   node = session[:menu].select(str)
+-  if node
+-    redirect_to(node.url)
+-  else
+-    logger.error("(error in menu)")
+-    redirect_to("/")
+-  end
++  nil
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:63b5a
+@@ -1,11 +1,6 @@
+ def link
+   str = params[:name]
+   node = session[:menu].select(str)
+-  if node
+-    redirect_to(node.url)
+-  else
+-    logger.error("(error in menu)")
+-    redirect_to("/")
+-  end
++  self
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:c90e9
+@@ -1,11 +1,11 @@
+ def link
+   str = params[:name]
+   node = session[:menu].select(str)
+-  if node
++  if nil
+     redirect_to(node.url)
+   else
+     logger.error("(error in menu)")
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:0cb5c
+@@ -1,11 +1,11 @@
+ def link
+   str = params[:name]
+   node = session[:menu].select(str)
+-  if node
++  if (!node)
+     redirect_to(node.url)
+   else
+     logger.error("(error in menu)")
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:2b512
+@@ -1,11 +1,11 @@
+ def link
+   str = params[:name]
+   node = session[:menu].select(str)
+-  if node
++  if true
+     redirect_to(node.url)
+   else
+     logger.error("(error in menu)")
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:d85ff
+@@ -1,11 +1,11 @@
+ def link
+   str = params[:name]
+   node = session[:menu].select(str)
+-  if node
++  if false
+     redirect_to(node.url)
+   else
+     logger.error("(error in menu)")
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:9316b
+@@ -1,11 +1,9 @@
+ def link
+   str = params[:name]
+   node = session[:menu].select(str)
+   if node
+-    redirect_to(node.url)
+-  else
+     logger.error("(error in menu)")
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:7c518
+@@ -1,11 +1,6 @@
+ def link
+   str = params[:name]
+   node = session[:menu].select(str)
+-  if node
+-    redirect_to(node.url)
+-  else
+-    logger.error("(error in menu)")
+-    redirect_to("/")
+-  end
++  redirect_to(node.url)
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:2acf2
+@@ -1,11 +1,11 @@
+ def link
+   str = params[:name]
+   node = session[:menu].select(str)
+   if node
+-    redirect_to(node.url)
++    nil
+   else
+     logger.error("(error in menu)")
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:23242
+@@ -1,11 +1,11 @@
+ def link
+   str = params[:name]
+   node = session[:menu].select(str)
+   if node
+-    redirect_to(node.url)
++    self
+   else
+     logger.error("(error in menu)")
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:faea4
+@@ -1,11 +1,11 @@
+ def link
+   str = params[:name]
+   node = session[:menu].select(str)
+   if node
+-    redirect_to(node.url)
++    node.url
+   else
+     logger.error("(error in menu)")
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:84a03
+@@ -1,11 +1,11 @@
+ def link
+   str = params[:name]
+   node = session[:menu].select(str)
+   if node
+-    redirect_to(node.url)
++    redirect_to
+   else
+     logger.error("(error in menu)")
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:c9c35
+@@ -1,11 +1,11 @@
+ def link
+   str = params[:name]
+   node = session[:menu].select(str)
+   if node
+-    redirect_to(node.url)
++    redirect_to(nil)
+   else
+     logger.error("(error in menu)")
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:b8af2
+@@ -1,11 +1,11 @@
+ def link
+   str = params[:name]
+   node = session[:menu].select(str)
+   if node
+-    redirect_to(node.url)
++    redirect_to(self)
+   else
+     logger.error("(error in menu)")
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:bd90a
+@@ -1,11 +1,11 @@
+ def link
+   str = params[:name]
+   node = session[:menu].select(str)
+   if node
+-    redirect_to(node.url)
++    redirect_to(node)
+   else
+     logger.error("(error in menu)")
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:2f57d
+@@ -1,11 +1,11 @@
+ def link
+   str = params[:name]
+   node = session[:menu].select(str)
+   if node
+-    redirect_to(node.url)
++    redirect_to(self.url)
+   else
+     logger.error("(error in menu)")
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:6a1a0
+@@ -1,11 +1,8 @@
+ def link
+   str = params[:name]
+   node = session[:menu].select(str)
+   if node
+     redirect_to(node.url)
+-  else
+-    logger.error("(error in menu)")
+-    redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:ccd74
+@@ -1,11 +1,7 @@
+ def link
+   str = params[:name]
+   node = session[:menu].select(str)
+-  if node
+-    redirect_to(node.url)
+-  else
+-    logger.error("(error in menu)")
+-    redirect_to("/")
+-  end
++  logger.error("(error in menu)")
++  redirect_to("/")
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:6afa8
+@@ -1,11 +1,11 @@
+ def link
+   str = params[:name]
+   node = session[:menu].select(str)
+   if node
+     redirect_to(node.url)
+   else
+-    logger.error("(error in menu)")
++    nil
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:573c0
+@@ -1,11 +1,11 @@
+ def link
+   str = params[:name]
+   node = session[:menu].select(str)
+   if node
+     redirect_to(node.url)
+   else
+-    logger.error("(error in menu)")
++    self
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:41b17
+@@ -1,11 +1,11 @@
+ def link
+   str = params[:name]
+   node = session[:menu].select(str)
+   if node
+     redirect_to(node.url)
+   else
+-    logger.error("(error in menu)")
++    logger
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:c86f4
+@@ -1,11 +1,11 @@
+ def link
+   str = params[:name]
+   node = session[:menu].select(str)
+   if node
+     redirect_to(node.url)
+   else
+-    logger.error("(error in menu)")
++    "(error in menu)"
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:cd4a0
+@@ -1,11 +1,11 @@
+ def link
+   str = params[:name]
+   node = session[:menu].select(str)
+   if node
+     redirect_to(node.url)
+   else
+-    logger.error("(error in menu)")
++    self.error("(error in menu)")
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:45c4d
+@@ -1,11 +1,11 @@
+ def link
+   str = params[:name]
+   node = session[:menu].select(str)
+   if node
+     redirect_to(node.url)
+   else
+-    logger.error("(error in menu)")
++    logger.error
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:9dabc
+@@ -1,11 +1,11 @@
+ def link
+   str = params[:name]
+   node = session[:menu].select(str)
+   if node
+     redirect_to(node.url)
+   else
+-    logger.error("(error in menu)")
++    logger.error(nil)
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:c1b0a
+@@ -1,11 +1,11 @@
+ def link
+   str = params[:name]
+   node = session[:menu].select(str)
+   if node
+     redirect_to(node.url)
+   else
+-    logger.error("(error in menu)")
++    logger.error(self)
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:a3374
+@@ -1,11 +1,10 @@
+ def link
+   str = params[:name]
+   node = session[:menu].select(str)
+   if node
+     redirect_to(node.url)
+   else
+     logger.error("(error in menu)")
+-    redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:9f523
+@@ -1,11 +1,11 @@
+ def link
+   str = params[:name]
+   node = session[:menu].select(str)
+   if node
+     redirect_to(node.url)
+   else
+     logger.error("(error in menu)")
+-    redirect_to("/")
++    nil
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:6cb89
+@@ -1,11 +1,11 @@
+ def link
+   str = params[:name]
+   node = session[:menu].select(str)
+   if node
+     redirect_to(node.url)
+   else
+     logger.error("(error in menu)")
+-    redirect_to("/")
++    self
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:b29c5
+@@ -1,11 +1,11 @@
+ def link
+   str = params[:name]
+   node = session[:menu].select(str)
+   if node
+     redirect_to(node.url)
+   else
+     logger.error("(error in menu)")
+-    redirect_to("/")
++    "/"
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:778f6
+@@ -1,11 +1,11 @@
+ def link
+   str = params[:name]
+   node = session[:menu].select(str)
+   if node
+     redirect_to(node.url)
+   else
+     logger.error("(error in menu)")
+-    redirect_to("/")
++    redirect_to
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:3f39e
+@@ -1,11 +1,11 @@
+ def link
+   str = params[:name]
+   node = session[:menu].select(str)
+   if node
+     redirect_to(node.url)
+   else
+     logger.error("(error in menu)")
+-    redirect_to("/")
++    redirect_to(nil)
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:91cd5
+@@ -1,11 +1,11 @@
+ def link
+   str = params[:name]
+   node = session[:menu].select(str)
+   if node
+     redirect_to(node.url)
+   else
+     logger.error("(error in menu)")
+-    redirect_to("/")
++    redirect_to(self)
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:67f60
+@@ -1,11 +1,10 @@
+ def link
+   str = params[:name]
+   node = session[:menu].select(str)
+   if node
+     redirect_to(node.url)
+   else
+-    logger.error("(error in menu)")
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:4f2f3
+@@ -1,11 +1,9 @@
+ def link
+   str = params[:name]
+   node = session[:menu].select(str)
+-  if node
+-    redirect_to(node.url)
+-  else
++  unless node
+     logger.error("(error in menu)")
+     redirect_to("/")
+   end
+ end
+-----------------------
+evil:MenuItemsController#link:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/menu_items_controller.rb:2:9bd65
+@@ -1,11 +1,9 @@
+ def link
+-  str = params[:name]
+-  node = session[:menu].select(str)
+   if node
+     redirect_to(node.url)
+   else
+     logger.error("(error in menu)")
+     redirect_to("/")
+   end
+ end
+-----------------------
+Mutant configuration:
+Matcher:         #<Mutant::Matcher::Config match_expressions: [MenuItemsController]>
+Integration:     Mutant::Integration::Null
+Jobs:            1
+Includes:        []
+Requires:        ["./config/environment"]
+Subjects:        1
+Mutations:       77
+Results:         77
+Kills:           1
+Alive:           76
+Runtime:         15.04s
+Killtime:        0.00s
+Overhead:        Inf%
+Mutations/s:     5.12
+Coverage:        1.30%

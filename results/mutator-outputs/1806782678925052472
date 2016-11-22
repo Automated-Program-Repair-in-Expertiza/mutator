@@ -1,0 +1,1780 @@
+Mutant configuration:
+Matcher:         #<Mutant::Matcher::Config match_expressions: [SignUpSheetController]>
+Integration:     Mutant::Integration::Null
+Jobs:            1
+Includes:        []
+Requires:        ["./config/environment"]
+(00/135) 100% - killtime: 0.00s runtime: 0.00s overhead: 0.00s
+(01/135)  16% - killtime: 0.00s runtime: 1.00s overhead: 1.00s
+(01/135)   9% - killtime: 0.00s runtime: 2.00s overhead: 2.00s
+(01/135)   5% - killtime: 0.00s runtime: 3.00s overhead: 3.00s
+(01/135)   4% - killtime: 0.00s runtime: 4.01s overhead: 4.01s
+(01/135)   3% - killtime: 0.00s runtime: 5.01s overhead: 5.01s
+(01/135)   2% - killtime: 0.00s runtime: 6.01s overhead: 6.01s
+(01/135)   2% - killtime: 0.00s runtime: 7.01s overhead: 7.01s
+(01/135)   2% - killtime: 0.00s runtime: 8.01s overhead: 8.01s
+(01/135)   1% - killtime: 0.00s runtime: 9.01s overhead: 9.01s
+(01/135)   1% - killtime: 0.00s runtime: 10.01s overhead: 10.01s
+(01/135)   1% - killtime: 0.00s runtime: 11.01s overhead: 11.01s
+(01/135)   1% - killtime: 0.00s runtime: 12.01s overhead: 12.01s
+(01/135)   1% - killtime: 0.00s runtime: 13.01s overhead: 13.01s
+(01/135)   1% - killtime: 0.00s runtime: 14.01s overhead: 14.01s
+(01/135)   1% - killtime: 0.00s runtime: 15.02s overhead: 15.02s
+(01/135)   0% - killtime: 0.00s runtime: 16.02s overhead: 16.02s
+(01/135)   0% - killtime: 0.00s runtime: 17.02s overhead: 17.02s
+(01/135)   0% - killtime: 0.00s runtime: 18.02s overhead: 18.02s
+(01/135)   0% - killtime: 0.00s runtime: 19.02s overhead: 19.02s
+(01/135)   0% - killtime: 0.00s runtime: 20.02s overhead: 20.02s
+SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:467db
+@@ -1,10 +1,4 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+-    return false
+-  else
+-    return true
+-  end
++  raise
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:ef9f6
+@@ -1,10 +1,3 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+-    return false
+-  else
+-    return true
+-  end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:182a0
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
++  nil
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:09d39
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
++  self
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:44f7c
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
++  @participant__mutant__ = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:54e9c
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
++  @participant = nil
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:59d5c
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
++  @participant = self
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:9a7db
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
++  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id])
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:3d4e1
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
++  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).last
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:973dc
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
++  @participant = self.first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:d6a26
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
++  @participant = Participant.first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:fe646
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
++  @participant = self.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:7116d
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
++  @participant = Participant.where.first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:4f316
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
++  @participant = Participant.where(nil, session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:3bbe5
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
++  @participant = Participant.where(self, session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:c18c1
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
++  @participant = Participant.where(session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:da1b5
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
++  @participant = Participant.where("user_id = ? and parent_id = ?", nil, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:31995
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
++  @participant = Participant.where("user_id = ? and parent_id = ?", self, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:df5f2
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
++  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user], params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:2a8da
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
++  @participant = Participant.where("user_id = ? and parent_id = ?", self.id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:51153
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
++  @participant = Participant.where("user_id = ? and parent_id = ?", session.id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:5e3c8
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
++  @participant = Participant.where("user_id = ? and parent_id = ?", session.at(:user).id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:7ca61
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
++  @participant = Participant.where("user_id = ? and parent_id = ?", session.fetch(:user).id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:9a84c
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
++  @participant = Participant.where("user_id = ? and parent_id = ?", session.key?(:user).id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:3d05b
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
++  @participant = Participant.where("user_id = ? and parent_id = ?", :user.id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:aaafc
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
++  @participant = Participant.where("user_id = ? and parent_id = ?", self[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:5f223
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
++  @participant = Participant.where("user_id = ? and parent_id = ?", session[].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:246a5
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
++  @participant = Participant.where("user_id = ? and parent_id = ?", session[nil].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:35ed3
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
++  @participant = Participant.where("user_id = ? and parent_id = ?", session[self].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:bf475
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
++  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user__mutant__].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:4b89b
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
++  @participant = Participant.where("user_id = ? and parent_id = ?", params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:76c42
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
++  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, nil).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:59e48
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
++  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, self).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:489d2
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
++  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:0d21d
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
++  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params.at(:assignment_id)).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:b52b0
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
++  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params.fetch(:assignment_id)).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:f082e
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
++  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params.key?(:assignment_id)).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:3e2e4
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
++  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, :assignment_id).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:bf8cf
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
++  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, self[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:f37da
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
++  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:18c40
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
++  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[nil]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:6037a
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
++  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[self]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:6ab6e
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
++  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id__mutant__]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:4ca68
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
++  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:76952
+@@ -1,10 +1,4 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+-    return false
+-  else
+-    return true
+-  end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:91de2
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
++  nil
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:a6111
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
++  self
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:8e7cc
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
++  authorization__mutant__ = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:752ec
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
++  authorization = nil
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:8eb04
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
++  authorization = self
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:b2de8
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
++  authorization = Participant
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:5d2c3
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
++  authorization = self.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:9f1c7
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
++  authorization = Participant.get_authorization
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:5980a
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
++  authorization = Participant.get_authorization(nil, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:2d29e
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
++  authorization = Participant.get_authorization(self, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:5c189
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
++  authorization = Participant.get_authorization(@participant, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:319bb
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
++  authorization = Participant.get_authorization(participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:a86bd
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
++  authorization = Participant.get_authorization(self.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:6d286
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
++  authorization = Participant.get_authorization(@participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:5eb78
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
++  authorization = Participant.get_authorization(@participant.can_submit, nil, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:dbfac
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
++  authorization = Participant.get_authorization(@participant.can_submit, self, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:e5668
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
++  authorization = Participant.get_authorization(@participant.can_submit, @participant, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:cd276
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
++  authorization = Participant.get_authorization(@participant.can_submit, participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:4b979
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
++  authorization = Participant.get_authorization(@participant.can_submit, self.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:e4f3f
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
++  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:91c5c
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
++  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, nil)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:3e269
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
++  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, self)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:1bd89
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
++  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:acedc
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
++  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:f6385
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
++  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, self.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:b7ab2
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
++  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:0ca4b
+@@ -1,10 +1,5 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+-    return false
+-  else
+-    return true
+-  end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:6083b
+@@ -1,10 +1,6 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+-    return false
+-  else
+-    return true
+-  end
++  nil
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:738d3
+@@ -1,10 +1,6 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+-    return false
+-  else
+-    return true
+-  end
++  self
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:510e0
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
++  if nil
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:a90ec
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
++  if ((authorization == "reader") || (authorization == "submitter"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:b205c
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
++  if (authorization == "reviewer")
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:f3ee0
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
++  if (((authorization == "reader") || (authorization == "submitter")) && (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:d34bc
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
++  if ((!((authorization == "reader") || (authorization == "submitter"))) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:9783f
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
++  if (nil || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:1c984
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
++  if (self || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:9e686
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
++  if ((authorization == "reader") || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:5f147
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
++  if ((authorization == "submitter") || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:9e36e
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
++  if (((authorization == "reader") && (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:bb5a4
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
++  if (((!(authorization == "reader")) || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:4c388
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
++  if ((nil || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:e24ba
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
++  if ((self || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:c385e
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
++  if ((authorization || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:bbc0c
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
++  if (((nil == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:982d8
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
++  if (((self == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:a6934
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
++  if ((authorization.eql?("reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:79b53
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
++  if ((authorization.equal?("reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:47437
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
++  if (("reader" || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:3d11a
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
++  if (((authorization == nil) || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:52a83
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
++  if (((authorization == self) || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:630c6
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
++  if (((authorization == "reader") || nil) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:7f7d5
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
++  if (((authorization == "reader") || self) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:a39ef
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
++  if (((authorization == "reader") || authorization) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:fcff7
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
++  if (((authorization == "reader") || (nil == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:51e0c
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
++  if (((authorization == "reader") || (self == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:d3a6b
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
++  if (((authorization == "reader") || authorization.eql?("submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:9daf6
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
++  if (((authorization == "reader") || authorization.equal?("submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:15079
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
++  if (((authorization == "reader") || "submitter") || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:bee6f
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
++  if (((authorization == "reader") || (authorization == nil)) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:65040
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
++  if (((authorization == "reader") || (authorization == self)) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:218cd
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
++  if (((authorization == "reader") || (authorization == "submitter")) || nil)
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:f3560
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
++  if (((authorization == "reader") || (authorization == "submitter")) || self)
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:e2999
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
++  if (((authorization == "reader") || (authorization == "submitter")) || authorization)
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:7e0da
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
++  if (((authorization == "reader") || (authorization == "submitter")) || (nil == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:ab6e6
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
++  if (((authorization == "reader") || (authorization == "submitter")) || (self == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:45f7d
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
++  if (((authorization == "reader") || (authorization == "submitter")) || authorization.eql?("reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:18943
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
++  if (((authorization == "reader") || (authorization == "submitter")) || authorization.equal?("reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:7d75b
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
++  if (((authorization == "reader") || (authorization == "submitter")) || "reviewer")
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:03917
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
++  if (((authorization == "reader") || (authorization == "submitter")) || (authorization == nil))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:38939
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
++  if (((authorization == "reader") || (authorization == "submitter")) || (authorization == self))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:b5d2f
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
++  if (!(((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer")))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:01e3c
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
++  if true
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:0a812
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
++  if false
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:ab595
+@@ -1,10 +1,8 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+-    return false
+-  else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:eb5d0
+@@ -1,10 +1,6 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+-    return false
+-  else
+-    return true
+-  end
++  return false
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:d840c
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+-    return false
++    nil
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:57272
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+-    return false
++    self
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:13d5f
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+-    return false
++    false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:2047f
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+-    return false
++    return nil
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:64609
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+-    return false
++    return true
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:96f94
+@@ -1,10 +1,8 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+-  else
+-    return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:8865a
+@@ -1,10 +1,6 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+-    return false
+-  else
+-    return true
+-  end
++  return true
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:31f10
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+-    return true
++    nil
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:987a6
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+-    return true
++    self
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:c72a3
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+-    return true
++    true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:5131a
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+-    return true
++    return nil
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:7943a
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+-    return true
++    return false
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:f7d42
+@@ -1,10 +1,8 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+-    return false
+-  else
++  unless (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return true
+   end
+ end
+-----------------------
+evil:SignUpSheetController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/sign_up_sheet_controller.rb:2:ec337
+@@ -1,10 +1,8 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if (((authorization == "reader") || (authorization == "submitter")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+Mutant configuration:
+Matcher:         #<Mutant::Matcher::Config match_expressions: [SignUpSheetController]>
+Integration:     Mutant::Integration::Null
+Jobs:            1
+Includes:        []
+Requires:        ["./config/environment"]
+Subjects:        1
+Mutations:       135
+Results:         135
+Kills:           1
+Alive:           134
+Runtime:         20.02s
+Killtime:        0.00s
+Overhead:        Inf%
+Mutations/s:     6.74
+Coverage:        0.74%

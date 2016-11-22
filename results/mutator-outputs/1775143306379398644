@@ -1,0 +1,1295 @@
+Mutant configuration:
+Matcher:         #<Mutant::Matcher::Config match_expressions: [SubmittedContentController]>
+Integration:     Mutant::Integration::Null
+Jobs:            1
+Includes:        []
+Requires:        ["./config/environment"]
+(00/98) 100% - killtime: 0.00s runtime: 0.00s overhead: 0.00s
+(01/98)  16% - killtime: 0.00s runtime: 1.00s overhead: 1.00s
+(01/98)   7% - killtime: 0.00s runtime: 2.00s overhead: 2.00s
+(01/98)   5% - killtime: 0.00s runtime: 3.01s overhead: 3.01s
+(01/98)   4% - killtime: 0.00s runtime: 4.01s overhead: 4.01s
+(01/98)   3% - killtime: 0.00s runtime: 5.01s overhead: 5.01s
+(01/98)   2% - killtime: 0.00s runtime: 6.04s overhead: 6.04s
+(01/98)   2% - killtime: 0.00s runtime: 7.04s overhead: 7.04s
+(01/98)   2% - killtime: 0.00s runtime: 8.04s overhead: 8.04s
+(01/98)   1% - killtime: 0.00s runtime: 9.04s overhead: 9.04s
+(01/98)   1% - killtime: 0.00s runtime: 10.04s overhead: 10.04s
+(01/98)   1% - killtime: 0.00s runtime: 11.04s overhead: 11.04s
+(01/98)   1% - killtime: 0.00s runtime: 12.05s overhead: 12.05s
+(01/98)   1% - killtime: 0.00s runtime: 13.05s overhead: 13.05s
+(01/98)   1% - killtime: 0.00s runtime: 14.05s overhead: 14.05s
+(01/98)   1% - killtime: 0.00s runtime: 15.05s overhead: 15.05s
+(01/98)   1% - killtime: 0.00s runtime: 16.05s overhead: 16.05s
+SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:a48ea
+@@ -1,10 +1,4 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.find(params[:id])
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if ((authorization == "reader") || (authorization == "reviewer"))
+-    return false
+-  else
+-    return true
+-  end
++  raise
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:78a7b
+@@ -1,10 +1,3 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.find(params[:id])
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if ((authorization == "reader") || (authorization == "reviewer"))
+-    return false
+-  else
+-    return true
+-  end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:b0f09
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.find(params[:id])
++  nil
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if ((authorization == "reader") || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:c234d
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.find(params[:id])
++  self
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if ((authorization == "reader") || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:fa631
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.find(params[:id])
++  @participant__mutant__ = Participant.find(params[:id])
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if ((authorization == "reader") || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:4729a
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.find(params[:id])
++  @participant = nil
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if ((authorization == "reader") || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:8a222
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.find(params[:id])
++  @participant = self
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if ((authorization == "reader") || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:62862
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.find(params[:id])
++  @participant = Participant
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if ((authorization == "reader") || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:aeca2
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.find(params[:id])
++  @participant = params[:id]
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if ((authorization == "reader") || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:426cd
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.find(params[:id])
++  @participant = self.find(params[:id])
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if ((authorization == "reader") || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:a7619
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.find(params[:id])
++  @participant = Participant.find
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if ((authorization == "reader") || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:d1105
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.find(params[:id])
++  @participant = Participant.find(nil)
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if ((authorization == "reader") || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:b9716
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.find(params[:id])
++  @participant = Participant.find(self)
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if ((authorization == "reader") || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:e9e70
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.find(params[:id])
++  @participant = Participant.find(params)
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if ((authorization == "reader") || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:1f299
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.find(params[:id])
++  @participant = Participant.find(params.at(:id))
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if ((authorization == "reader") || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:f0a89
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.find(params[:id])
++  @participant = Participant.find(params.fetch(:id))
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if ((authorization == "reader") || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:47b62
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.find(params[:id])
++  @participant = Participant.find(params.key?(:id))
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if ((authorization == "reader") || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:97cdf
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.find(params[:id])
++  @participant = Participant.find(:id)
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if ((authorization == "reader") || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:bfe62
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.find(params[:id])
++  @participant = Participant.find(self[:id])
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if ((authorization == "reader") || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:aa6c3
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.find(params[:id])
++  @participant = Participant.find(params[])
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if ((authorization == "reader") || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:8b866
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.find(params[:id])
++  @participant = Participant.find(params[nil])
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if ((authorization == "reader") || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:fae67
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.find(params[:id])
++  @participant = Participant.find(params[self])
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if ((authorization == "reader") || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:30e4b
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.find(params[:id])
++  @participant = Participant.find(params[:id__mutant__])
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if ((authorization == "reader") || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:615b7
+@@ -1,10 +1,4 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if ((authorization == "reader") || (authorization == "reviewer"))
+-    return false
+-  else
+-    return true
+-  end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:3f117
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
++  nil
+   if ((authorization == "reader") || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:3e6e5
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
++  self
+   if ((authorization == "reader") || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:f9ba7
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
++  authorization__mutant__ = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if ((authorization == "reader") || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:80999
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
++  authorization = nil
+   if ((authorization == "reader") || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:956f0
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
++  authorization = self
+   if ((authorization == "reader") || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:c9588
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
++  authorization = Participant
+   if ((authorization == "reader") || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:bb49e
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
++  authorization = self.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if ((authorization == "reader") || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:153b8
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
++  authorization = Participant.get_authorization
+   if ((authorization == "reader") || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:a319b
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
++  authorization = Participant.get_authorization(nil, @participant.can_review, @participant.can_take_quiz)
+   if ((authorization == "reader") || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:ed03b
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
++  authorization = Participant.get_authorization(self, @participant.can_review, @participant.can_take_quiz)
+   if ((authorization == "reader") || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:aba7d
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
++  authorization = Participant.get_authorization(@participant, @participant.can_review, @participant.can_take_quiz)
+   if ((authorization == "reader") || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:43d3a
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
++  authorization = Participant.get_authorization(participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if ((authorization == "reader") || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:63a18
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
++  authorization = Participant.get_authorization(self.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if ((authorization == "reader") || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:9af25
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
++  authorization = Participant.get_authorization(@participant.can_review, @participant.can_take_quiz)
+   if ((authorization == "reader") || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:43a53
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
++  authorization = Participant.get_authorization(@participant.can_submit, nil, @participant.can_take_quiz)
+   if ((authorization == "reader") || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:f2d71
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
++  authorization = Participant.get_authorization(@participant.can_submit, self, @participant.can_take_quiz)
+   if ((authorization == "reader") || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:de7f2
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
++  authorization = Participant.get_authorization(@participant.can_submit, @participant, @participant.can_take_quiz)
+   if ((authorization == "reader") || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:3d956
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
++  authorization = Participant.get_authorization(@participant.can_submit, participant.can_review, @participant.can_take_quiz)
+   if ((authorization == "reader") || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:21814
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
++  authorization = Participant.get_authorization(@participant.can_submit, self.can_review, @participant.can_take_quiz)
+   if ((authorization == "reader") || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:5b5a6
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
++  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_take_quiz)
+   if ((authorization == "reader") || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:d6c23
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
++  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, nil)
+   if ((authorization == "reader") || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:e554e
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
++  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, self)
+   if ((authorization == "reader") || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:eb12d
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
++  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant)
+   if ((authorization == "reader") || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:70cac
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
++  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, participant.can_take_quiz)
+   if ((authorization == "reader") || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:f30d2
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
++  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, self.can_take_quiz)
+   if ((authorization == "reader") || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:6aacf
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
++  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review)
+   if ((authorization == "reader") || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:e1339
+@@ -1,10 +1,5 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.find(params[:id])
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if ((authorization == "reader") || (authorization == "reviewer"))
+-    return false
+-  else
+-    return true
+-  end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:1c018
+@@ -1,10 +1,6 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if ((authorization == "reader") || (authorization == "reviewer"))
+-    return false
+-  else
+-    return true
+-  end
++  nil
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:1a230
+@@ -1,10 +1,6 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if ((authorization == "reader") || (authorization == "reviewer"))
+-    return false
+-  else
+-    return true
+-  end
++  self
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:2dbee
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if ((authorization == "reader") || (authorization == "reviewer"))
++  if nil
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:94e10
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if ((authorization == "reader") || (authorization == "reviewer"))
++  if (authorization == "reader")
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:26b3a
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if ((authorization == "reader") || (authorization == "reviewer"))
++  if (authorization == "reviewer")
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:e876d
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if ((authorization == "reader") || (authorization == "reviewer"))
++  if ((authorization == "reader") && (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:e11e1
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if ((authorization == "reader") || (authorization == "reviewer"))
++  if ((!(authorization == "reader")) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:b76d9
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if ((authorization == "reader") || (authorization == "reviewer"))
++  if (nil || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:a1861
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if ((authorization == "reader") || (authorization == "reviewer"))
++  if (self || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:84b03
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if ((authorization == "reader") || (authorization == "reviewer"))
++  if (authorization || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:22dc1
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if ((authorization == "reader") || (authorization == "reviewer"))
++  if ((nil == "reader") || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:1044f
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if ((authorization == "reader") || (authorization == "reviewer"))
++  if ((self == "reader") || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:63ae4
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if ((authorization == "reader") || (authorization == "reviewer"))
++  if (authorization.eql?("reader") || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:8af32
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if ((authorization == "reader") || (authorization == "reviewer"))
++  if (authorization.equal?("reader") || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:c4f8e
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if ((authorization == "reader") || (authorization == "reviewer"))
++  if ("reader" || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:0fbe8
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if ((authorization == "reader") || (authorization == "reviewer"))
++  if ((authorization == nil) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:f99fc
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if ((authorization == "reader") || (authorization == "reviewer"))
++  if ((authorization == self) || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:a3a8a
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if ((authorization == "reader") || (authorization == "reviewer"))
++  if ((authorization == "reader") || nil)
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:887a3
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if ((authorization == "reader") || (authorization == "reviewer"))
++  if ((authorization == "reader") || self)
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:1f099
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if ((authorization == "reader") || (authorization == "reviewer"))
++  if ((authorization == "reader") || authorization)
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:1a20b
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if ((authorization == "reader") || (authorization == "reviewer"))
++  if ((authorization == "reader") || (nil == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:ed481
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if ((authorization == "reader") || (authorization == "reviewer"))
++  if ((authorization == "reader") || (self == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:09dec
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if ((authorization == "reader") || (authorization == "reviewer"))
++  if ((authorization == "reader") || authorization.eql?("reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:509d9
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if ((authorization == "reader") || (authorization == "reviewer"))
++  if ((authorization == "reader") || authorization.equal?("reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:4c53d
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if ((authorization == "reader") || (authorization == "reviewer"))
++  if ((authorization == "reader") || "reviewer")
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:2cbf1
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if ((authorization == "reader") || (authorization == "reviewer"))
++  if ((authorization == "reader") || (authorization == nil))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:6f8c8
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if ((authorization == "reader") || (authorization == "reviewer"))
++  if ((authorization == "reader") || (authorization == self))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:5d8f4
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if ((authorization == "reader") || (authorization == "reviewer"))
++  if (!((authorization == "reader") || (authorization == "reviewer")))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:c841d
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if ((authorization == "reader") || (authorization == "reviewer"))
++  if true
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:bceee
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if ((authorization == "reader") || (authorization == "reviewer"))
++  if false
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:9ff73
+@@ -1,10 +1,8 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if ((authorization == "reader") || (authorization == "reviewer"))
+-    return false
+-  else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:4c64e
+@@ -1,10 +1,6 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if ((authorization == "reader") || (authorization == "reviewer"))
+-    return false
+-  else
+-    return true
+-  end
++  return false
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:04bd4
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if ((authorization == "reader") || (authorization == "reviewer"))
+-    return false
++    nil
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:a39bf
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if ((authorization == "reader") || (authorization == "reviewer"))
+-    return false
++    self
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:15a5e
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if ((authorization == "reader") || (authorization == "reviewer"))
+-    return false
++    false
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:4050d
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if ((authorization == "reader") || (authorization == "reviewer"))
+-    return false
++    return nil
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:e71f3
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if ((authorization == "reader") || (authorization == "reviewer"))
+-    return false
++    return true
+   else
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:d0801
+@@ -1,10 +1,8 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if ((authorization == "reader") || (authorization == "reviewer"))
+     return false
+-  else
+-    return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:beb0c
+@@ -1,10 +1,6 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if ((authorization == "reader") || (authorization == "reviewer"))
+-    return false
+-  else
+-    return true
+-  end
++  return true
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:03b3d
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if ((authorization == "reader") || (authorization == "reviewer"))
+     return false
+   else
+-    return true
++    nil
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:a5edf
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if ((authorization == "reader") || (authorization == "reviewer"))
+     return false
+   else
+-    return true
++    self
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:b7403
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if ((authorization == "reader") || (authorization == "reviewer"))
+     return false
+   else
+-    return true
++    true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:4b7e6
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if ((authorization == "reader") || (authorization == "reviewer"))
+     return false
+   else
+-    return true
++    return nil
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:9a279
+@@ -1,10 +1,10 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if ((authorization == "reader") || (authorization == "reviewer"))
+     return false
+   else
+-    return true
++    return false
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:12e03
+@@ -1,10 +1,8 @@
+ def are_needed_authorizations_present?
+   @participant = Participant.find(params[:id])
+   authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+-  if ((authorization == "reader") || (authorization == "reviewer"))
+-    return false
+-  else
++  unless ((authorization == "reader") || (authorization == "reviewer"))
+     return true
+   end
+ end
+-----------------------
+evil:SubmittedContentController#are_needed_authorizations_present?:/home/expertiza_developer/Automated-Program-Repair-in-Expertiza/mutant_rails_app/app/mutator-inputs/submitted_content_controller.rb:2:018b8
+@@ -1,10 +1,8 @@
+ def are_needed_authorizations_present?
+-  @participant = Participant.find(params[:id])
+-  authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+   if ((authorization == "reader") || (authorization == "reviewer"))
+     return false
+   else
+     return true
+   end
+ end
+-----------------------
+Mutant configuration:
+Matcher:         #<Mutant::Matcher::Config match_expressions: [SubmittedContentController]>
+Integration:     Mutant::Integration::Null
+Jobs:            1
+Includes:        []
+Requires:        ["./config/environment"]
+Subjects:        1
+Mutations:       98
+Results:         98
+Kills:           1
+Alive:           97
+Runtime:         16.05s
+Killtime:        0.00s
+Overhead:        Inf%
+Mutations/s:     6.11
+Coverage:        1.02%
