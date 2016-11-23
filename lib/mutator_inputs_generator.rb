@@ -21,13 +21,13 @@ fault_locations.each do |name, content|
 	full_file_path = "#{parent_dir_path}/expertiza/#{file_path}"
 	method_finder = MethodFinder.new(full_file_path)
 	first_line = ''
-	file_name = ''
+	snake_case_class_name = ''
 	File.readlines(full_file_path).each do |line|
 		# find the class declaration line of origin file to
 		# become the first line of new file
 		if line.start_with? 'class'
 			first_line = line 
-			file_name = line.match(/\s[a-zA-Z]+\s/).to_s.strip.underscore
+			snake_case_class_name = line.match(/\s[a-zA-Z]+\s/).to_s.strip.underscore
 			break
 		end
 	end
@@ -35,12 +35,12 @@ fault_locations.each do |name, content|
 	method_block = method_finder.find(num_of_line)
 	directory_path = "#{parent_dir_path}/mutator/results/mutator-inputs/#{airbrake_group_id}"
 	Dir.mkdir(directory_path) unless File.exists?(directory_path)
-	mutator_input_file_path = "#{directory_path}/#{file_name}.rb"
+	mutator_input_file_path = "#{directory_path}/#{snake_case_class_name}.rb"
 
 	file = File.open(mutator_input_file_path, 'w+')
 	file.puts(first_line)
 	file.puts('  ' + method_block)
 	file.puts('end')
 	file.close
-	puts "Mutator-inputs #{file_name}.rb is generated!"
+	puts "Mutator-inputs #{snake_case_class_name}.rb is generated!"
 end
