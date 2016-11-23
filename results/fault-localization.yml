@@ -5,6 +5,8 @@ RuntimeExceptionError1:
     app/controllers/sign_up_sheet_controller.rb
   LineNum:
     388
+  Test:
+     - spec/features/airbrake_expection_errors_feature_tests_spec.rb:32
 
 RuntimeExceptionError2:
   AirbrakeGroupId:
@@ -13,6 +15,8 @@ RuntimeExceptionError2:
     app/controllers/submitted_content_controller.rb
   LineNum:
     245
+  Test:
+    spec/controllers/airbrake_exception_errors_controller_tests_spec.rb:63
 
 RuntimeExceptionError3:
   AirbrakeGroupId:
@@ -21,6 +25,9 @@ RuntimeExceptionError3:
     app/controllers/tree_display_controller.rb
   LineNum:
     87
+  Test:
+     - spec/features/airbrake_expection_errors_feature_tests_spec.rb:116
+     - spec/controllers/tree_display_controller_spec.rb:5
 
 RuntimeExceptionError4:
   AirbrakeGroupId:
@@ -29,6 +36,8 @@ RuntimeExceptionError4:
     app/controllers/menu_items_controller.rb
   LineNum:
     151
+  Test:
+    - spec/controllers/airbrake_exception_errors_controller_tests_spec.rb:97
 
 RuntimeExceptionError5:
   AirbrakeGroupId:
@@ -37,6 +46,8 @@ RuntimeExceptionError5:
     app/controllers/assignments_controller.rb
   LineNum:
     10
+  Test:
+    - spec/features/airbrake_expection_errors_feature_tests_spec.rb:83
 
 RuntimeExceptionError6:
   AirbrakeGroupId:
@@ -45,6 +56,8 @@ RuntimeExceptionError6:
     app/models/vm_question_response.rb
   LineNum:
     161
+  Test:
+    - spec/models/airbrake_expection_errors_unit_tests_spec.rb:4
 
 RuntimeExceptionError7:
   AirbrakeGroupId:
@@ -53,6 +66,8 @@ RuntimeExceptionError7:
     app/controllers/users_controller.rb
   LineNum:
     237
+  Test:
+    - spec/features/airbrake_expection_errors_feature_tests_spec.rb:170
 
 RuntimeExceptionError8:
   AirbrakeGroupId:
@@ -61,6 +76,8 @@ RuntimeExceptionError8:
     app/controllers/response_controller.rb
   LineNum:
     309
+  Test:
+    - spec/models/airbrake_expection_errors_unit_tests_spec.rb:37
 
 RuntimeExceptionError9:
   AirbrakeGroupId:
@@ -69,6 +86,8 @@ RuntimeExceptionError9:
     app/models/sign_up_topic.rb
   LineNum:
     84
+  Test:
+    - spec/models/airbrake_expection_errors_unit_tests_spec.rb:66
 
 RuntimeExceptionError10:
   AirbrakeGroupId:
@@ -77,6 +96,8 @@ RuntimeExceptionError10:
     app/controllers/questionnaires_controller.rb
   LineNum:
     325
+  Test:
+    - spec/features/airbrake_expection_errors_feature_tests_spec.rb:41
 
 RuntimeExceptionError11:
   AirbrakeGroupId:
@@ -85,6 +106,8 @@ RuntimeExceptionError11:
     app/controllers/import_file_controller.rb
   LineNum:
     32
+  Test:
+    - spec/controllers/airbrake_exception_errors_controller_tests_spec.rb:44
 
 RuntimeExceptionError12:
   AirbrakeGroupId:
@@ -93,6 +116,8 @@ RuntimeExceptionError12:
     app/controllers/teams_controller.rb
   LineNum:
     31
+  Test:
+    - spec/features/airbrake_expection_errors_feature_tests_spec.rb:157
 
 RuntimeExceptionError13:
   AirbrakeGroupId:
@@ -101,6 +126,8 @@ RuntimeExceptionError13:
     app/controllers/questionnaires_controller.rb
   LineNum:
     224
+  Test:
+    - spec/features/airbrake_expection_errors_feature_tests_spec.rb:99
 
 RuntimeExceptionError14:
   AirbrakeGroupId:
@@ -109,6 +136,8 @@ RuntimeExceptionError14:
     app/controllers/review_mapping_controller.rb
   LineNum:
     278
+  Test:
+    - spec/controllers/airbrake_exception_errors_controller_tests_spec.rb:147
 
 RuntimeExceptionError15:
   AirbrakeGroupId:
@@ -117,6 +146,8 @@ RuntimeExceptionError15:
     app/controllers/teams_controller.rb
   LineNum:
     71
+  Test:
+    - spec/controllers/airbrake_exception_errors_controller_tests_spec.rb:6
 
 RuntimeExceptionError16:
   AirbrakeGroupId:
@@ -125,6 +156,8 @@ RuntimeExceptionError16:
     app/controllers/sign_up_sheet_controller.rb
   LineNum:
     77
+  Test:
+    - spec/features/airbrake_expection_errors_feature_tests_spec.rb:64
 
 RuntimeExceptionError17:
   AirbrakeGroupId:
@@ -133,3 +166,5 @@ RuntimeExceptionError17:
     app/controllers/grades_controller.rb
   LineNum:
     247
+  Test:
+    - spec/controllers/airbrake_exception_errors_controller_tests_spec.rb:116
