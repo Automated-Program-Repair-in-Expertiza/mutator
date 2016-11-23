@@ -34,10 +34,10 @@ fault_locations.each do |name, content|
 
 	method_block = method_finder.find(num_of_line)
 	directory_path = "#{parent_dir_path}/mutator/results/mutator-inputs/#{airbrake_group_id}"
-	Dir.mkdir(directory_path) unless File.exists?(directory_path)
+	Dir.mkdir(directory_path) unless Dir.exists?(directory_path)
 	mutator_input_file_path = "#{directory_path}/#{snake_case_class_name}.rb"
 
-	file = File.open(mutator_input_file_path, 'w+')
+	file = File.open(mutator_input_file_path, 'w')
 	file.puts(first_line)
 	file.puts('  ' + method_block)
 	file.puts('end')

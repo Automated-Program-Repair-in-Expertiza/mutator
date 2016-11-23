@@ -23,12 +23,12 @@ fault_locations.each do |name, content|
 		end
 
 		if line.start_with? '--'
-			Dir.mkdir(directory_path) unless File.exists?(directory_path)
+			Dir.mkdir(directory_path) unless Dir.exists?(directory_path)
 			full_file_path = "#{parent_dir_path}/expertiza/#{source_file_path}"
 
 			puts "mutator_#{iterator}"
 			mutator_diff_path = "#{directory_path}/mutator_#{iterator}"
-			file = File.open(mutator_diff_path, 'w+')
+			file = File.open(mutator_diff_path, 'w')
 			file.puts(mutator_method)
 			file.close
 
