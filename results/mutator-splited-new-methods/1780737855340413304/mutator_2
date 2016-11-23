@@ -1,4 +1,0 @@
-class QuestionnairesController < ApplicationController
-  def update_quiz
-  end
-end

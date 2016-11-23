@@ -1,0 +1,5 @@
+  def delete
+    if @team
+      @team.destroy
+    end
+  end

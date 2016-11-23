@@ -1,5 +1,0 @@
-class SubmittedContentController < ApplicationController
-  def are_needed_authorizations_present?
-    raise
-  end
-end

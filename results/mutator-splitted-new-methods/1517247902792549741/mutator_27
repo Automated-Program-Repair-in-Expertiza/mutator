@@ -1,0 +1,5 @@
+  def list
+    if current_user.student?
+      redirect_to(controller: :student_task, self => :list)
+    end
+  end

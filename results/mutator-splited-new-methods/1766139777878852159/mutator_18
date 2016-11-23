@@ -1,5 +1,0 @@
-class MenuItemsController < ApplicationController
-  def link
-    str = params[:name]
-  end
-end

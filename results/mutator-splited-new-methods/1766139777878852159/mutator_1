@@ -1,5 +1,0 @@
-class MenuItemsController < ApplicationController
-  def link
-    raise
-  end
-end

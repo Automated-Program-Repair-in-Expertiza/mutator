@@ -1,0 +1,18 @@
+  def delete
+    @team = Team.find(params[:id])
+    course = Object.const_get(session[:team_type]).find(@team.parent_id)
+    @signUps = SignedUpTeam.where(team_id: @team.id)
+    @teams_users = TeamsUser.where(team_id: @team.id)
+    self
+    if @signUps
+      @signUps.destroy_all
+    end
+    if @teams_users
+      @teams_users.destroy_all
+    end
+    if @team
+      @team.destroy
+    end
+    undo_link("#{"The team \""}#{@team.name}#{"\" has been successfully deleted."}")
+    redirect_to(action: "list", id: course.id)
+  end

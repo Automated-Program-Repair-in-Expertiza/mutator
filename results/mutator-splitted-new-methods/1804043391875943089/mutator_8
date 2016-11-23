@@ -1,0 +1,3 @@
+  def new
+    @parent = Object.const_get(session[:team_type])
+  end

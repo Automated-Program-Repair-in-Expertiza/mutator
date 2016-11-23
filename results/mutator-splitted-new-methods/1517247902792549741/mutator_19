@@ -1,0 +1,5 @@
+  def list
+    if current_user.student?
+      redirect_to(nil => :student_task, action: :list)
+    end
+  end

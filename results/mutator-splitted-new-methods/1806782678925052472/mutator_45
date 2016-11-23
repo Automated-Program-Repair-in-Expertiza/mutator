@@ -1,0 +1,3 @@
+  def are_needed_authorizations_present?
+    @participant = Participant.where("user_id = ? and parent_id = ?", session[:user].id, params[:assignment_id]).first
+  end

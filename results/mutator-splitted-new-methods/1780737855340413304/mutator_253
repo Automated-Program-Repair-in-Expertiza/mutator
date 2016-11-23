@@ -1,0 +1,49 @@
+  def update_quiz
+    @questionnaire = Questionnaire.find(params[:id])
+    if @questionnaire.nil?
+      redirect_to(controller: "submitted_content", action: "view", id: params[:pid])
+    end
+    if params["save"]
+      @questionnaire.update_attributes(questionnaire_params)
+      for qid in params[:question].keys do
+        @question = Question.find(qid)
+        @question.txt = params[:question][qid.to_sym][:txt]
+        @question.save
+        @quiz_question_choices = QuizQuestionChoice.where(question_id: qid)
+        i = 1
+        for quiz_question_choice in @quiz_question_choices do
+          if (@question.type == "MultipleChoiceCheckbox")
+            if params[:quiz_question_choices][self][@question.type][i.to_s]
+              quiz_question_choice.update_attributes(iscorrect: params[:quiz_question_choices][@question.id.to_s][@question.type][i.to_s][:iscorrect], txt: params[:quiz_question_choices][@question.id.to_s][@question.type][i.to_s][:txt])
+            else
+              quiz_question_choice.update_attributes(iscorrect: "0", txt: params[:quiz_question_choices][quiz_question_choice.id.to_s][:txt])
+            end
+          end
+          if (@question.type == "MultipleChoiceRadio")
+            if (params[:quiz_question_choices][@question.id.to_s][@question.type][:correctindex] == i.to_s)
+              quiz_question_choice.update_attributes(iscorrect: "1", txt: params[:quiz_question_choices][@question.id.to_s][@question.type][i.to_s][:txt])
+            else
+              quiz_question_choice.update_attributes(iscorrect: "0", txt: params[:quiz_question_choices][@question.id.to_s][@question.type][i.to_s][:txt])
+            end
+          end
+          if (@question.type == "TrueFalse")
+            if (params[:quiz_question_choices][@question.id.to_s][@question.type][1.to_s][:iscorrect] == "True")
+              if (quiz_question_choice.txt == "True")
+                quiz_question_choice.update_attributes(iscorrect: "1")
+              else
+                quiz_question_choice.update_attributes(iscorrect: "0")
+              end
+            else
+              if (quiz_question_choice.txt == "True")
+                quiz_question_choice.update_attributes(iscorrect: "0")
+              else
+                quiz_question_choice.update_attributes(iscorrect: "1")
+              end
+            end
+          end
+          i += 1
+        end
+      end
+    end
+    redirect_to(controller: "submitted_content", action: "view", id: params[:pid])
+  end

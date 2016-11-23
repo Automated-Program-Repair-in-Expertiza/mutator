@@ -1,0 +1,7 @@
+  def are_needed_authorizations_present?
+    if ((authorization == "reader") || (authorization == "reviewer"))
+      return false
+    else
+      return true
+    end
+  end

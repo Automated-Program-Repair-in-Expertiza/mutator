@@ -1,4 +1,0 @@
-class ImportFileController < ApplicationController
-  def importFile(session, params)
-  end
-end

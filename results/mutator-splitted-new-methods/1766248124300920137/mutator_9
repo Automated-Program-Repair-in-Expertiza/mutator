@@ -1,0 +1,2 @@
+  def self.reassign_topic(session_user_id, assignment_id, topic_id)
+  end

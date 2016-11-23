@@ -1,0 +1,3 @@
+  def delete
+    @team = Team.find(params[:id])
+  end

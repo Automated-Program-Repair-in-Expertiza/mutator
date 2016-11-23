@@ -1,5 +1,0 @@
-class ReviewMappingController < ApplicationController
-  def delete_reviewer
-    redirect_to(action: "list_mappings", id: assignment_id)
-  end
-end

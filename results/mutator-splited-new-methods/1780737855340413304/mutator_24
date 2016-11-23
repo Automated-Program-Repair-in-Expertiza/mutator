@@ -1,5 +1,0 @@
-class QuestionnairesController < ApplicationController
-  def update_quiz
-    @questionnaire = Questionnaire.find(params[:id])
-  end
-end

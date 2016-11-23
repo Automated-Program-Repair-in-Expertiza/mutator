@@ -1,0 +1,3 @@
+  def delete
+    @teams_users = TeamsUser.where(team_id: @team.id)
+  end

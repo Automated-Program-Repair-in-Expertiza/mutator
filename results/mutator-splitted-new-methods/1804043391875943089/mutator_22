@@ -1,0 +1,3 @@
+  def new
+    @parent = Object.const_get(self[:team_type]).find(params[:id])
+  end

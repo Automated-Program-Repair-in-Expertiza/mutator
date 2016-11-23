@@ -1,7 +1,0 @@
-class MenuItemsController < ApplicationController
-  def link
-    str = params[:name]
-    node = session[:menu].select(str)
-    nil
-  end
-end

@@ -1,0 +1,3 @@
+  def new
+    @parent = Object.const_get(nil).find(params[:id])
+  end

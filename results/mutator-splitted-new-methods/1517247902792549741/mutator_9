@@ -1,0 +1,5 @@
+  def list
+    if true
+      redirect_to(controller: :student_task, action: :list)
+    end
+  end

@@ -1,0 +1,5 @@
+  def link
+    str = params[:name]
+    node = session[:menu].select(str)
+    redirect_to(node.url)
+  end

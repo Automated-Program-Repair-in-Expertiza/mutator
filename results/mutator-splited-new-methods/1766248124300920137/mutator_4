@@ -1,3 +1,0 @@
-class SignUpTopic < ActiveRecord::Base
-
-end

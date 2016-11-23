@@ -1,5 +1,0 @@
-class AssignmentsController < ApplicationController
-  def action_allowed?
-    self
-  end
-end

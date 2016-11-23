@@ -1,0 +1,2 @@
+  def redirect_when_disallowed
+  end

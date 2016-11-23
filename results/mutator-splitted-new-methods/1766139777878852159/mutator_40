@@ -1,0 +1,3 @@
+  def link
+    node = session[:menu].select(str)
+  end

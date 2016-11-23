@@ -1,0 +1,3 @@
+  def are_needed_authorizations_present?
+    authorization = Participant.get_authorization(@participant.can_submit, @participant.can_review, @participant.can_take_quiz)
+  end

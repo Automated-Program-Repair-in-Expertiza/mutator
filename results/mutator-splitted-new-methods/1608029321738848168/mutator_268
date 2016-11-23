@@ -1,0 +1,3 @@
+  def action_allowed?
+    ["Super-Administrator", "Administrator", "Instructor", "Teaching Assistant"].include?(current_role_name)
+  end

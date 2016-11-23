@@ -1,0 +1,3 @@
+  def new
+    @parent = Object.const_get(session.key?(:team_type)).find(params[:id])
+  end

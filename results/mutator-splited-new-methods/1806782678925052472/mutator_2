@@ -1,4 +1,0 @@
-class SignUpSheetController < ApplicationController
-  def are_needed_authorizations_present?
-  end
-end

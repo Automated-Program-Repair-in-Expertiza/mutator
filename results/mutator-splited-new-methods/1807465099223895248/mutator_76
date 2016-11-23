@@ -1,5 +1,0 @@
-class TeamsController < ApplicationController
-  def delete
-    @signUps = SignedUpTeam.where(team_id: @team.id)
-  end
-end

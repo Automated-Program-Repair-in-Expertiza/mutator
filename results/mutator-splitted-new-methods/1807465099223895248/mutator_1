@@ -1,0 +1,3 @@
+  def delete
+    raise
+  end

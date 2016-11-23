@@ -1,5 +1,0 @@
-class TeamsController < ApplicationController
-  def new
-    @parent = session[:team_type].find(params[:id])
-  end
-end

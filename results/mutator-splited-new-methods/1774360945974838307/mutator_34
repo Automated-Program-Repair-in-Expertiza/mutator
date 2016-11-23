@@ -1,5 +1,0 @@
-class ImportFileController < ApplicationController
-  def importFile(session, params)
-    file = params["file"].tempfile
-  end
-end

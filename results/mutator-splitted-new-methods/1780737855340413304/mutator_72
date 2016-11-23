@@ -1,0 +1,8 @@
+  def update_quiz
+    @questionnaire = Questionnaire.find(params[:id])
+    if @questionnaire.nil?
+      redirect_to(controller: "submitted_content", action: "view", id: params[:pid])
+    end
+    self
+    redirect_to(controller: "submitted_content", action: "view", id: params[:pid])
+  end

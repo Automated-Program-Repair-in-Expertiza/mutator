@@ -1,0 +1,8 @@
+  def set_dropdown_or_scale
+    use_dropdown__mutant__ = AssignmentQuestionnaire.where(assignment_id: @assignment.id, questionnaire_id: @questionnaire.id).first.dropdown
+    @dropdown_or_scale = if (use_dropdown == true)
+      "dropdown"
+    else
+      "scale"
+    end
+  end

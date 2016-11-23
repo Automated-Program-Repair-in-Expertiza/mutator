@@ -1,0 +1,19 @@
+  def importFile(session, params)
+    delimiter = get_delimiter(params)
+    file = params["file"].tempfile
+    errors = []
+    first_row_read = false
+    row_header = {}
+    file.each_line do |line|
+      if (first_row_read == false)
+        row_header = parse_line(line.downcase, delimiter)
+        first_row_read = true
+        if row_header.include?("email")
+          next
+        else
+          row_header = {}
+        end
+      end
+    end
+    errors
+  end

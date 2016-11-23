@@ -1,5 +1,0 @@
-class TeamsController < ApplicationController
-  def new
-    @parent__mutant__ = Object.const_get(session[:team_type]).find(params[:id])
-  end
-end

@@ -1,0 +1,5 @@
+  def delete
+    if @teams_users
+      @teams_users.destroy_all
+    end
+  end

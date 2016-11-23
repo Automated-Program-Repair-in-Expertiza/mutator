@@ -1,0 +1,5 @@
+  def list
+    if current_user.student?
+      redirect_to
+    end
+  end

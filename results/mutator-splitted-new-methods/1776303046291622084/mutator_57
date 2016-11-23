@@ -1,0 +1,3 @@
+  def paginate_list(users)
+    @search_by = params[:search_by]
+  end

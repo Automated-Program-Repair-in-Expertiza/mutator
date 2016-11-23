@@ -1,0 +1,5 @@
+  def save_all_questions
+    unless params[:id].nil?
+      questionnaire_id = params[:id]
+    end
+  end

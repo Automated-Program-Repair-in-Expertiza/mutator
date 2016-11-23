@@ -1,0 +1,5 @@
+  def self.reassign_topic(session_user_id, assignment_id, topic_id)
+    assignment = Assignment.find(assignment_id)
+    dropDate = AssignmentDueDate.where(parent_id: assignment.id, deadline_type_id: "6").first
+    self
+  end

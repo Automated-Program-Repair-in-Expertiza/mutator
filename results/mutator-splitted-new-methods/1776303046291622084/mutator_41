@@ -1,0 +1,3 @@
+  def paginate_list(users)
+    paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+  end

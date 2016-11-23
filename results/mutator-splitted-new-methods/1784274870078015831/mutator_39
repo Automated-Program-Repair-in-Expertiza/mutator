@@ -1,0 +1,12 @@
+  def redirect_when_disallowed
+    if (@participant.assignment.max_team_size > 1)
+      team = @participant.team
+      self
+    else
+      reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+      unless current_user_id?(reviewer.user_id)
+        return true
+      end
+    end
+    false
+  end

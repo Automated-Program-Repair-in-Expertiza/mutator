@@ -1,0 +1,3 @@
+  def destroy
+    redirect_to(edit_assignment_path(params[:assignment_id]) + "#tabs-5")
+  end
