@@ -1,0 +1,9 @@
+class GradesController < ApplicationController
+  def redirect_when_disallowed
+    reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+    unless current_user_id?(reviewer.user_id)
+      return true
+    end
+    false
+  end
+end

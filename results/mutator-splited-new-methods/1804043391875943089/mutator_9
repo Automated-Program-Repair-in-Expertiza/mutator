@@ -1,0 +1,5 @@
+class TeamsController < ApplicationController
+  def new
+    @parent = params[:id]
+  end
+end

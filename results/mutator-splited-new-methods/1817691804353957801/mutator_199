@@ -1,0 +1,7 @@
+class QuestionnairesController < ApplicationController
+  def save_all_questions
+    if params["export"]
+      export
+    end
+  end
+end

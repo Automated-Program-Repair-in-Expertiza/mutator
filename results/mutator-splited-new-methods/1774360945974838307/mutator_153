@@ -1,0 +1,13 @@
+class ImportFileController < ApplicationController
+  def importFile(session, params)
+    delimiter = get_delimiter(params)
+    file = params["file"].tempfile
+    errors = []
+    first_row_read = false
+    row_header = {}
+    file.each_line do |line|
+      row = parse_line(line, delimiter)
+    end
+    errors
+  end
+end

@@ -1,0 +1,10 @@
+class SignUpSheetController < ApplicationController
+  def destroy
+    if @topic
+      @topic.destroy
+      undo_link("#{"The topic: \""}#{@topic.topic_name}#{"\" has been successfully deleted. "}")
+    else
+      flash[:error] = "The topic could not be deleted."
+    end
+  end
+end

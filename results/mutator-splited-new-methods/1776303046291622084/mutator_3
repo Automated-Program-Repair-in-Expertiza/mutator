@@ -1,0 +1,5 @@
+class UsersController < ApplicationController
+  def paginate_list(users)
+    raise
+  end
+end

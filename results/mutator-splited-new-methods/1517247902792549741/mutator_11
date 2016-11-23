@@ -1,0 +1,5 @@
+class TreeDisplayController < ApplicationController
+  def list
+    redirect_to(controller: :student_task, action: :list)
+  end
+end

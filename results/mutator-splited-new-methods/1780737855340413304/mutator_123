@@ -1,0 +1,15 @@
+class QuestionnairesController < ApplicationController
+  def update_quiz
+    @questionnaire = Questionnaire.find(params[:id])
+    if @questionnaire.nil?
+      redirect_to(controller: "submitted_content", action: "view", id: params[:pid])
+    end
+    if params["save"]
+      @questionnaire.update_attributes(questionnaire_params)
+      for qid in params[:question].keys do
+        @question = Question.find(qid)
+      end
+    end
+    redirect_to(controller: "submitted_content", action: "view", id: params[:pid])
+  end
+end

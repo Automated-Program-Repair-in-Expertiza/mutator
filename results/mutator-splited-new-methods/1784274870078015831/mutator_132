@@ -1,0 +1,16 @@
+class GradesController < ApplicationController
+  def redirect_when_disallowed
+    if (@participant.assignment.max_team_size > 1)
+      team = @participant.team
+      unless team.nil?
+        unless team.has_user(session[:user])
+          redirect_to("/denied?reason=You are not on the team that wrote this feedback")
+          return true
+        end
+      end
+    else
+      reviewer = AssignmentParticipant.where(user_id: session[:user].id, parent_id: @participant.assignment.id).first
+    end
+    false
+  end
+end

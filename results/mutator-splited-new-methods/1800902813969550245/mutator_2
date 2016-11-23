@@ -1,0 +1,4 @@
+class ReviewMappingController < ApplicationController
+  def delete_reviewer
+  end
+end

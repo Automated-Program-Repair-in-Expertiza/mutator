@@ -1,0 +1,7 @@
+class TreeDisplayController < ApplicationController
+  def list
+    if current_user.student?
+      self
+    end
+  end
+end

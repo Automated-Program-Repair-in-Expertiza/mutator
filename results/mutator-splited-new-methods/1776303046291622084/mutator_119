@@ -1,0 +1,12 @@
+class UsersController < ApplicationController
+  def paginate_list(users)
+    paginate_options = { "1" => 25, "2" => 50, "3" => 100 }
+    @search_by = params[:search_by]
+    users = if paginate_options[@per_page.to_s].nil?
+      users.paginate(page: params[:page], per_page: users.count)
+    else
+      nil
+    end
+    users
+  end
+end

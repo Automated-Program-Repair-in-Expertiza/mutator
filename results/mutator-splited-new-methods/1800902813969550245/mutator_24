@@ -1,0 +1,5 @@
+class ReviewMappingController < ApplicationController
+  def delete_reviewer
+    review_response_map = ReviewResponseMap.find(params[:id])
+  end
+end

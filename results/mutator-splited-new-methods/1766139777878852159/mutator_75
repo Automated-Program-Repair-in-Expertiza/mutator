@@ -1,0 +1,10 @@
+class MenuItemsController < ApplicationController
+  def link
+    str = params[:name]
+    node = session[:menu].select(str)
+    unless node
+      logger.error("(error in menu)")
+      redirect_to("/")
+    end
+  end
+end

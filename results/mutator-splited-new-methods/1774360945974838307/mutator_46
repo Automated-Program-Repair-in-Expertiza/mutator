@@ -1,0 +1,5 @@
+class ImportFileController < ApplicationController
+  def importFile(session, params)
+    first_row_read = false
+  end
+end

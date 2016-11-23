@@ -1,0 +1,6 @@
+class GradesController < ApplicationController
+  def redirect_when_disallowed
+    nil
+    false
+  end
+end

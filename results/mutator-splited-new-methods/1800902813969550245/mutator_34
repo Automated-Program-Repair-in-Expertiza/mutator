@@ -1,0 +1,5 @@
+class ReviewMappingController < ApplicationController
+  def delete_reviewer
+    assignment_id = review_response_map.assignment.id
+  end
+end

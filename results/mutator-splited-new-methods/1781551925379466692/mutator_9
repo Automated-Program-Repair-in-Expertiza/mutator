@@ -1,0 +1,6 @@
+class VmQuestionResponse
+  def get_number_of_comments_greater_than_10_words
+    first_time = true
+    nil
+  end
+end

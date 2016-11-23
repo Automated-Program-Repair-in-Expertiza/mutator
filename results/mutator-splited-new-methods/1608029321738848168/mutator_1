@@ -1,0 +1,5 @@
+class AssignmentsController < ApplicationController
+  def action_allowed?
+    raise
+  end
+end

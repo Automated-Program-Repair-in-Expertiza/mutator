@@ -1,0 +1,8 @@
+class ReviewMappingController < ApplicationController
+  def delete_reviewer
+    review_response_map = ReviewResponseMap.find(params[:id])
+    assignment_id = review_response_map.assignment.id
+    self
+    redirect_to(action: "list_mappings", id: assignment_id)
+  end
+end

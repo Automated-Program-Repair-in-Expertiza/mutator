@@ -1,0 +1,5 @@
+class ImportFileController < ApplicationController
+  def importFile(session, params)
+    errors = []
+  end
+end

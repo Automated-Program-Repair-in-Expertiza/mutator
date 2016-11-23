@@ -1,0 +1,5 @@
+class MenuItemsController < ApplicationController
+  def link
+    node = session[:menu].select(str)
+  end
+end

@@ -1,0 +1,7 @@
+class TreeDisplayController < ApplicationController
+  def list
+    if current_user.student?
+      redirect_to(controller: :student_task__mutant__, action: :list)
+    end
+  end
+end

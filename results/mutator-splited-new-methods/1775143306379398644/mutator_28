@@ -1,0 +1,11 @@
+class SubmittedContentController < ApplicationController
+  def are_needed_authorizations_present?
+    @participant = Participant.find(params[:id])
+    authorization = nil
+    if ((authorization == "reader") || (authorization == "reviewer"))
+      return false
+    else
+      return true
+    end
+  end
+end

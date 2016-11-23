@@ -1,0 +1,5 @@
+class QuestionnairesController < ApplicationController
+  def update_quiz
+    redirect_to(controller: "submitted_content", action: "view", id: params[:pid])
+  end
+end

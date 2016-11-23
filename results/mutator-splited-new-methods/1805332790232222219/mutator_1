@@ -1,0 +1,5 @@
+class ResponseController < ApplicationController
+  def set_dropdown_or_scale
+    raise
+  end
+end

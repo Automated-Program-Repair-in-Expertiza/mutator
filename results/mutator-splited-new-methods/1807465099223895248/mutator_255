@@ -1,0 +1,5 @@
+class TeamsController < ApplicationController
+  def delete
+    undo_link("#{"The team \""}#{@team.name}#{"\" has been successfully deleted."}")
+  end
+end

@@ -1,0 +1,7 @@
+class TeamsController < ApplicationController
+  def delete
+    if @signUps
+      @signUps.destroy_all
+    end
+  end
+end

@@ -1,0 +1,4 @@
+class SignUpSheetController < ApplicationController
+  def destroy
+  end
+end

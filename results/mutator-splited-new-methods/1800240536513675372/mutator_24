@@ -1,0 +1,5 @@
+class SignUpSheetController < ApplicationController
+  def destroy
+    @topic = SignUpTopic.find(params[:id])
+  end
+end

@@ -1,0 +1,5 @@
+class TreeDisplayController < ApplicationController
+  def list
+    self
+  end
+end

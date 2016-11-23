@@ -1,0 +1,5 @@
+class QuestionnairesController < ApplicationController
+  def save_all_questions
+    raise
+  end
+end

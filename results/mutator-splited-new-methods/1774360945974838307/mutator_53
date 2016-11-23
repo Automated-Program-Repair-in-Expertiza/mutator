@@ -1,0 +1,11 @@
+class ImportFileController < ApplicationController
+  def importFile(session, params)
+    delimiter = get_delimiter(params)
+    file = params["file"].tempfile
+    errors = []
+    first_row_read = false
+    row_header = {}
+    nil
+    errors
+  end
+end

@@ -1,0 +1,7 @@
+class TeamsController < ApplicationController
+  def delete
+    if @teams_users
+      @teams_users.destroy_all
+    end
+  end
+end
