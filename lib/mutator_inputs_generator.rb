@@ -1,7 +1,6 @@
 require 'yaml'
 require_relative './method_finder.rb'
 require_relative './string.rb'
-require 'pry'
 
 # TODO: solve relative path problem
 #
@@ -10,19 +9,21 @@ require 'pry'
 # generate a new file only contains class declaration and this method block
 #
 parent_dir_path = File.expand_path("../../../", __FILE__)
-fault_locations = YAML.load_file("#{parent_dir_path}/mutator/results/fault-localization.yml")
+folder_paths = YAML.load_file("./folder_path.yml")
+fault_locations = YAML.load_file(folder_paths['FaultLocations'])
+
 method_finder = nil
 
 fault_locations.each do |name, content|
 	airbrake_group_id = content['AirbrakeGroupId']
-	file_path = content['File']
+	source_file_path = content['File']
 	num_of_line = content['LineNum']
 
-	full_file_path = "#{parent_dir_path}/expertiza/#{file_path}"
-	method_finder = MethodFinder.new(full_file_path)
+	expertiza_file_path = folder_paths['ExpertizaFilePath']
+	method_finder = MethodFinder.new(expertiza_file_path)
 	first_line = ''
 	snake_case_class_name = ''
-	File.readlines(full_file_path).each do |line|
+	File.readlines(expertiza_file_path).each do |line|
 		# find the class declaration line of origin file to
 		# become the first line of new file
 		if line.start_with? 'class'
@@ -33,9 +34,9 @@ fault_locations.each do |name, content|
 	end
 
 	method_block = method_finder.find(num_of_line)
-	directory_path = "#{parent_dir_path}/mutator/results/mutator-inputs/#{airbrake_group_id}"
-	Dir.mkdir(directory_path) unless Dir.exists?(directory_path)
-	mutator_input_file_path = "#{directory_path}/#{snake_case_class_name}.rb"
+	mutator_input_dir_path = folder_paths['MutatorInputDirPath']
+	Dir.mkdir(mutator_input_dir_path) unless Dir.exists?(mutator_input_dir_path)
+	mutator_input_file_path = "#{mutator_input_dir_path}/#{snake_case_class_name}.rb"
 
 	file = File.open(mutator_input_file_path, 'w')
 	file.puts(first_line)

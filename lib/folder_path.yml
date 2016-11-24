@@ -1,0 +1,20 @@
+FaultLocations:
+  "#{parent_dir_path}/mutator/results/fault_localization.yml"
+
+ExpertizaFilePath:
+  "#{parent_dir_path}/expertiza/#{source_file_path}"
+
+MutatorInputDirPath:
+  "#{parent_dir_path}/mutator/results/mutator-inputs/#{airbrake_group_id}"
+
+MutatorCopiedDirPath:
+  "#{parent_dir_path}/mutant_rails_app/app/mutator-inputs/"
+
+MutatorOutputDirPath:
+  "#{parent_dir_path}/mutator/results/mutator-outputs/#{airbrake_group_id}"
+
+MutatorSplittedNewMethodDirPath:
+  "#{parent_dir_path}/mutator/results/mutator-splitted-new-methods/#{airbrake_group_id}"
+
+MutatorScriptPath:
+  "#{parent_dir_path}/mutator/lib"
