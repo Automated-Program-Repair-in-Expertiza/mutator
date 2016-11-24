@@ -28,8 +28,8 @@ fault_locations.each do |name, content|
 		file.close
 
 		test_cases.each do |test_case_path|
-			system("cd #{parent_dir_path}/mutant_rails_app/ && \
-			  		rspec #{parent_dir_path}/expertiza/#{test_case_path} && \
+			system("cd #{parent_dir_path}/expertiza/; \
+			  		rspec #{parent_dir_path}/expertiza/#{test_case_path}; \
 			  		cd #{parent_dir_path}/mutator/lib")
 
 			file = File.open("#{parent_dir_path}/mutator/results/test-results", 'a')
