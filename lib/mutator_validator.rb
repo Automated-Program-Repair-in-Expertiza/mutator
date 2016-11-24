@@ -51,11 +51,13 @@ fault_locations.each do |name, content|
 	file.close
 
 	# recover modified file
-	original_method = File.read(mutator_input_file_path).gsub!(/^.*\n\s\sdef/, '  def').gsub!(/end\n$/, '')
-	file = File.open(full_file_path, 'w')
-	new_whole_file_content = new_whole_file_content.sub(mutator_method, original_method)
-	file.puts(new_whole_file_content)
-	file.close
+	system("cd ../../expertiza && git checkout . && cd ../mutator/lib")
+	# mutator_method = original_method
+	# original_method = File.read(mutator_input_file_path).gsub!(/^.*\n\s\sdef/, '  def').gsub!(/end\n$/, '')
+	# file = File.open(full_file_path, 'w')
+	# new_whole_file_content = new_whole_file_content.sub(mutator_method, original_method)
+	# file.puts(new_whole_file_content)
+	# file.close
 end
 
 
