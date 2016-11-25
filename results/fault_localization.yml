@@ -77,7 +77,7 @@ RuntimeExceptionError8:
   LineNum:
     309
   Test:
-    - spec/models/airbrake_expection_errors_unit_tests_spec.rb:37
+    - spec/models/airbrake_expection_errors_unit_tests_spec.rb:43
 
 RuntimeExceptionError9:
   AirbrakeGroupId:
@@ -87,7 +87,7 @@ RuntimeExceptionError9:
   LineNum:
     84
   Test:
-    - spec/models/airbrake_expection_errors_unit_tests_spec.rb:66
+    - spec/models/airbrake_expection_errors_unit_tests_spec.rb:72
 
 RuntimeExceptionError10:
   AirbrakeGroupId:
