@@ -10,7 +10,7 @@ fault_locations = YAML.load_file(folder_paths['FaultLocations'] % {parent_dir_pa
 
 method_finder = nil
 # for each runtime exception error mutator file
-# try to generate a new file only contains class declaration and certain method block
+# try to generate a new file only containing class declaration and buggy method
 fault_locations.each do |name, content|
 	airbrake_group_id = content['AirbrakeGroupId']
 	source_file_path = content['File']
