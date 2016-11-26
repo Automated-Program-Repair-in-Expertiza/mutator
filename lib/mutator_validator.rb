@@ -44,13 +44,13 @@ fault_locations.each do |name, content|
 
 		# goto expertiza dir; run the test; go back to current dir
 		test_cases.each do |test_case_path|
-			system("cd #{parent_dir_path}/expertiza/; \
-			  		rspec #{parent_dir_path}/expertiza/#{test_case_path}; \
+			system("cd #{parent_dir_path}/expertiza/ && \
+			  		rspec #{parent_dir_path}/expertiza/#{test_case_path} && \
 			  		cd #{mutator_script_path}")
 
 			# if shell script exit 0 (w/o error), record time, file name and show SUCCESS
 			# if shell script exit with other number (with error), show fail
-			file = File.open("#{parent_dir_path}/mutator/results/test-results", 'a')
+			file = File.open("#{parent_dir_path}/mutator/results/test-results1", 'a')
 			file.puts("AirbrakeGroupId: #{airbrake_group_id}") if iterator == 1
 			if $?.exitstatus == 0
 				file.puts("#{Time.now}\t\t#{file_name}\t\tSUCCESS")
@@ -66,7 +66,7 @@ fault_locations.each do |name, content|
 	end
 
 	# add separator
-	file = File.open("#{parent_dir_path}/mutator/results/test-results", 'a')
+	file = File.open("#{parent_dir_path}/mutator/results/test-results1", 'a')
 	file.puts("--------------------\n")
 	file.close
 
