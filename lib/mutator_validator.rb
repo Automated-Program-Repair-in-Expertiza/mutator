@@ -50,7 +50,7 @@ fault_locations.each do |name, content|
 
 			# if shell script exit 0 (w/o error), record time, file name and show SUCCESS
 			# if shell script exit with other number (with error), show fail
-			file = File.open("#{parent_dir_path}/mutator/results/test-results1", 'a')
+			file = File.open("#{parent_dir_path}/mutator/results/test-results", 'a')
 			file.puts("AirbrakeGroupId: #{airbrake_group_id}") if iterator == 1
 			if $?.exitstatus == 0
 				file.puts("#{Time.now}\t\t#{file_name}\t\tSUCCESS")
@@ -66,7 +66,7 @@ fault_locations.each do |name, content|
 	end
 
 	# add separator
-	file = File.open("#{parent_dir_path}/mutator/results/test-results1", 'a')
+	file = File.open("#{parent_dir_path}/mutator/results/test-results", 'a')
 	file.puts("--------------------\n")
 	file.close
 
