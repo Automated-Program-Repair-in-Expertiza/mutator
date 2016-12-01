@@ -39,7 +39,7 @@
   - Script `run.sh` includes all commands. You can run `bash run.sh` to start the whole mutator process. (Have to git clone [mutant_rails_app](https://github.com/Automated-Program-Repair-in-Expertiza/mutant_rails_app) into same directory as mutator first)
   - File `string.rb` monkey-patches rails' `underscore` and `camelize` into String manually, instead of install ActiveSupport.
 - Folder `results` stores all intermediate and final results.
-  - File `fault_licalization.yml` stores the id, buggy file, line number, test case information of each runtime exception error.
+  - File `fault_localization.yml` stores the id, buggy file, line number, test case information of each runtime exception error.
   - Folder `mutator-inputs` stores the results of `mutator_inputs_generator.rb` script.
   - Folder `mutator-outputs` stores the results of `mutator.rb` script.
   - Folder `mutator-splitted-new-methods` stores the results of `mutator_outputs_separator.rb` script.
