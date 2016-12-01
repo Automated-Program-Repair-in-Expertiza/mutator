@@ -30,7 +30,7 @@
 ```
 
 - Folder `lib` is created to store all kinds of scripts used to do automated-program-repair.
-  - File `folder_path.yml` stores all frequent-used directory paths.
+  - File `folder_path.yml` stores all frequently-used directory paths.
   - File `method_finder.rb` is used to accept a file path and line number and return the method that containing certain line of code.
   - Script `mutator.rb` uses [mutant gem](https://github.com/mbj/mutant) to mutate original method into several new mutant methods.
   - Script `mutator_inputs_generator.rb` generates a new file (input file of `mutator.rb`) only containing class declaration and buggy method block for each runtime exception error.
